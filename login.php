@@ -1,79 +1,57 @@
 <?php
-require("connection.php");
-
+include("connection.php");
 session_start();
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if (isset($_POST['register'])) {
 
-//    $email = htmlspecialchars($_POST['email']);
-    $email = filter_input(INPUT_POST, $_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, $_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
+// could make this as an array and loop through it
+$emailError = "";
+$passwordError = "";
 
-    if (true) {
-        $_SESSION['user'] = 'logged in user';
-        header('Location: student-dashboard.php');
-    } else {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['login'])) {
 
+        if (!filter_var($emailError, FILTER_VALIDATE_EMAIL)) {
+            $emailError = "invalid email";
+        }
+        if ($_POST['email'] == "") {
+            $emailError = "email cannot be empty";
+        }
+
+        if ($_POST['password'] == "") {
+            $passwordError = "password cannot be empty";
+        }
+
+        if (empty($emailError) && empty($passwordError)) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $result = mysqli_query($conn, "select * from user where email='$email'");
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            echo '<pre>' . var_export($rows, true) . '</pre>';
+            if (count($rows)) {
+                $user = $rows[0];
+                if (password_verify($password, $user['password'])) {
+                    $_SESSION['user'] = serialize($user);
+                    if ($user['level'] == "admin") {
+                        header('Location: admin-dashboard.php');
+                    } else if ($user['level'] == "teacher") {
+                        header('Location: teacher-dashboard.php');
+                    } else if ($user['level'] == "student") {
+                        header('Location: student-dashboard.php');
+                    }
+                }
+            }
+        }
     }
-
 }
-
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    $email = mysqli_real_escape_string($conn, $_POST['email']);
-//    $password = mysqli_real_escape_string($conn, $_POST['password']);
-//
-//    $sql = "SELECT * FROM user WHERE email = '$email'";
-//
-//    $result = mysqli_query($conn, $sql);
-//
-//    echo print_r($result, true);
-
-//    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-//    $active = $row['active'];
-
-//    $count = mysqli_num_rows($result);
-
-//    if ($count == 1) {
-////        session_register("myusername");
-//        $_SESSION['login_user'] = $email;
-//
-//        header("location: welcome.php");
-//    } else {
-//        $error = "Your Login Name or Password is invalid";
-//    }
-//}
-
-
 ?>
 
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-
-<h1>register</h1>
-<form action="" method="post">
-    email: <input type="email" name="email"><br>
-    <p>error</p>
-    password: <input type="password" name="password"><br>
-    <p>error</p>
-    <input type="submit" value="register" name="register">
+<h1>login</h1>
+<form action="login.php" method="POST" novalidate>
+    email: <input type="email" name="email" value=""><br>
+    <?php echo $emailError ?>
+    <br>
+    password: <input type="password" name="password" value=""><br>
+    <?php echo $passwordError ?>
+    <br>
+    <input type="submit" value="login" name="login">
 </form>
-
-<login>login</login>
-<form action="" method="post">
-    email: <input type="email" name="email"><br>
-    password: <input type="password" name="password"><br>
-    <input type="submit" value="login">
-</form>
-
-</body>
-</html>
