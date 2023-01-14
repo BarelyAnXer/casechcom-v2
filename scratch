@@ -1,0 +1,16 @@
+// sanitizin inputs
+// https://youtu.be/BUCiSSyIGGU?t=6107
+<script>alert(1)</script>
+
+// session for protected routes
+// wysiwyg form control
+
+<!--hash-->
+<!---->
+
+<!--* Lahat ng table may current_timestamp-->
+<!--* Soft delete lang   -https://stackoverflow.com/questions/5020568/soft-delete-best-practices-php-mysql -->
+<!--* ERD cardinality-->
+<!--* Features na makakatulong tlga-->
+<!--* Ayusin project timeline(kasama sa ipriprint)-->
+<!--* Unique email address-->
