@@ -1,15 +1,17 @@
 <?php
-include("connection.php");
+include("config/connection.php");
+//
 session_start();
-
 // could make this as an array and loop through it
 $emailError = "";
 $passwordError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        if (!filter_var($emailError, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailError = "invalid email";
         }
         if ($_POST['email'] == "") {
@@ -21,9 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (empty($emailError) && empty($passwordError)) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
             $result = mysqli_query($conn, "select * from user where email='$email'");
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             echo '<pre>' . var_export($rows, true) . '</pre>';

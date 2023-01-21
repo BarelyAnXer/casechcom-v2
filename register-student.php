@@ -1,7 +1,6 @@
 <?php
-include("connection.php");
+include("config/connection.php");
 
-session_start();
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
