@@ -1,7 +1,7 @@
 <?php
 include "config/connection.php";
 session_start();
-$user;
+//$user;
 
 if (isset($_SESSION['user'])) {
     $user = unserialize($_SESSION['user']);
