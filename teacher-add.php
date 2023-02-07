@@ -9,19 +9,19 @@ if (isset($_POST['register'])) {
     $lastname = $_POST['lastname'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
-    $classes = $_POST['classes'];
+    $hiredate = $_POST['hiredate'];
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'student')";
+    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'teacher')";
 
     if (mysqli_query($conn, $user_sql)) {
-        $student_id = $conn->insert_id;
-        $student_sql = "INSERT INTO student (user_id, classes_id) VALUES ('$student_id', '$classes')";
-        if ($conn->query($student_sql) === TRUE) {
-            echo "New student record created successfully";
+        $teacher_id = $conn->insert_id;
+        $teacher_sql = "INSERT INTO teacher (user_id, hire_date) VALUES ('$teacher_id', '$hiredate')";
+        if ($conn->query($teacher_sql) === TRUE) {
+            echo "New teacher record created successfully";
         } else {
-            echo "Error: " . $student_sql . "<br>" . $conn->error;
+            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
         }
 
     } else {
@@ -36,7 +36,7 @@ if (isset($_POST['register'])) {
 <?php include "sidebar.php" ?>
 
 <div class="content">
-    <h1>register student</h1>
+    <h1>register teacher</h1>
     <form action="" method="post">
         email: <input type="email" name="email"><br>
         password: <input type="password" name="password"><br>
@@ -48,21 +48,7 @@ if (isset($_POST['register'])) {
             <option value="Female">Female</option>
         </select><br>
         address: <textarea name="address" rows="4" cols="50"></textarea><br>
-        <span>classes:</span>
-        <select name="classes">
-            <?php
-            $user_sql = "SELECT * FROM classes";
-            $res = mysqli_query($conn, $user_sql);
-            $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
-            if ($rows > 0) {
-                foreach ($rows as $row) {
-                    ?>
-                    <option value="<?php echo $row['classes_id'] ?>"><?php echo $row['name'] ?></option>
-                    <?php
-                }
-            }
-            ?>
-        </select>
+        hiredate: <input type="date" id="" name="hiredate">
         <br>
 
         <input type="submit" value="register" name="register">
