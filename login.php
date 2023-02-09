@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h1>login</h1>
 <form action="login.php" method="POST" novalidate>
-    email: <input type="email" name="email" value=""><br>
+    email: <input type="text" name="email" value=""><br>
     <?php echo $emailError ?>
     <br>
     password: <input type="password" name="password" value=""><br>

@@ -11,8 +11,12 @@
     <a href="teacher-add.php">Create</a>
     <a href="teacher-view.php">Read</a>
     <a class="active" href="subject-crd.php">Subjects</a>
-    <a class="active" href="">Classes</a>
+    <a class="active" href="classes-crd.php">Classes</a>
     <a class="active" href="">Teaches</a>
-    <a href="">Create</a>
-    <a href="">Read</a>
+    <a href="teaches-add.php">Create</a>
+    <a href="teaches-view.php">Read</a>
+    <a class="active" href="">Grades</a>
+    <a class="" href="grades-add.php">Create</a>
+    <a class="" href="grades-view.php">Read</a>
+
 </div>

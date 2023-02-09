@@ -1,7 +1,13 @@
 <?php include "sidebar.php" ?>
 
+<head>
+    <link rel="stylesheet" href="./test.css">
+</head>
+
 <div class="content">
-    ADMI DASHBAOR
+    <div class="test2">
+        test
+    </div>
 </div>
 
 
