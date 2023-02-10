@@ -1,7 +1,4 @@
-<?php
-include "config/connection.php";
-
-?>
+<?php include "./config/connection.php"; ?>
 
 
 <?php include "sidebar.php" ?>
@@ -52,6 +49,55 @@ WHERE t.teacher_id = 37;";
         <br>
         <br>
         <br>
+
+        <table>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>subject name</th>
+                <th>grade 1</th>
+                <th>grade 2</th>
+                <th>grade 3</th>
+                <th>grade 4</th>
+                <th>average</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+
+            $result = mysqli_query($conn, "select *
+from grade
+         join student s on grade.student_id = s.student_id
+         join user u on s.user_id = u.user_id
+        join subject s2 on s2.subject_id = grade.subject_id");
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            if ($rows > 0) {
+                foreach ($rows as $row) {
+                    ?>
+                    <tr>
+                        <td><?php echo $row['grade_id']; ?></td>
+                        <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td>
+                        <!--                        <td>--><?php //echo $row['classes_name']; ?><!--</td>-->
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['gradeq1']; ?></td>
+                        <td><?php echo $row['gradeq2']; ?></td>
+                        <td><?php echo $row['gradeq3']; ?></td>
+                        <td><?php echo $row['gradeq4']; ?></td>
+                        <td>average</td>
+                        <td>
+                            <a href="./grades-edit.php?id=<?php echo $row['grade_id']; ?>">EDIT</a>
+                            <a href="./grades-delete.php?id=<?php echo $row['grade_id']; ?>">DELETE</a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            }
+            ?>
+            </tbody>
+        </table>
 
         <input type="submit" value="View Grades" name="register">
     </form>

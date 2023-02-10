@@ -5,12 +5,18 @@ if (isset($_POST['register'])) {
     $teacher_id = $_POST['teacher_id'];
     $classes_id = $_POST['classes_id'];
     $subject_id = $_POST['subject_id'];
+    $student_id = $_POST['student_id'];
+    $grade1 = $_POST['grade1'];
+    $grade2 = $_POST['grade2'];
+    $grade3 = $_POST['grade3'];
+    $grade4 = $_POST['grade4'];
 
-    $teaches_sql = "INSERT INTO teaches (teacher_id, subject_id, classes_id) VALUES ('$teacher_id', '$subject_id', '$classes_id')";
-    if (mysqli_query($conn, $teaches_sql)) {
-        echo "New student record created successfully";
+    $grade_sql = "insert into grade (student_id, subject_id, classes_id, teacher_id, gradeq2, gradeq3, gradeq4, gradeq1)
+values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '$grade2', '$grade3', '$grade4')";
+    if (mysqli_query($conn, $grade_sql)) {
+        echo "New grade record created successfully";
     } else {
-        echo "Error: " . $person_sql . "<br>" . $conn->error;
+        echo "Error: " . $grade_sql . "<br>" . $conn->error;
     }
 }
 ?>
@@ -27,6 +33,7 @@ if (isset($_POST['register'])) {
                     $("#classes").html(data);
                 }
             });
+
         }
 
         function getSubjects(classes_id) {
@@ -44,6 +51,17 @@ if (isset($_POST['register'])) {
                     $("#subject").html(data);
                 }
             });
+
+            $.ajax({
+                type: "POST",
+                url: "getStudents.php",
+                data: {
+                    classes_id: classes_id,
+                },
+                success: function (data) {
+                    $("#student").html(data);
+                }
+            });
         }
     </script>
 </head>
@@ -58,8 +76,8 @@ if (isset($_POST['register'])) {
         <select name="teacher_id" onchange="getClasses(this.value)" id="teacher">
             <option value="">---Select Teacher---</option>
             <?php
-            $teaches_sql = "SELECT * FROM user JOIN teacher t on user.user_id = t.user_id";
-            $res = mysqli_query($conn, $teaches_sql);
+            $grade_sql = "SELECT * FROM user JOIN teacher t on user.user_id = t.user_id";
+            $res = mysqli_query($conn, $grade_sql);
             $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
             if ($rows > 0) {
                 foreach ($rows as $row) {
@@ -86,7 +104,7 @@ if (isset($_POST['register'])) {
         <br>
 
         <span>student</span>
-        <select name="teacher_id">
+        <select name="student_id" id="student">
             <option value="">---Select Student---</option>
         </select>
         <br>
@@ -95,10 +113,10 @@ if (isset($_POST['register'])) {
         <br>
         <br>
 
-        <label for="">Q1</label> <input type="text" name="q1"><br>
-        <label for="">Q2</label> <input type="text" name="q2"><br>
-        <label for="">Q3</label> <input type="text" name="q3"><br>
-        <label for="">Q4</label> <input type="text" name="q4"><br>
+        <label for="">Q1</label> <input type="text" name="grade1"><br>
+        <label for="">Q2</label> <input type="text" name="grade2"><br>
+        <label for="">Q3</label> <input type="text" name="grade3"><br>
+        <label for="">Q4</label> <input type="text" name="grade4"><br>
 
         <br>
         <br>
