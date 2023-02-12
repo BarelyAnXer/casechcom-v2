@@ -2,7 +2,6 @@
 include "config/connection.php";
 if (isset($_POST['update'])) {
     $id = mysqli_real_escape_string($conn, $_POST['id']);
-//    $email = mysqli_real_escape_string($conn, $_POST['email']);
     $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);

@@ -18,5 +18,8 @@
     <a class="active" href="">Grades</a>
     <a class="" href="grades-add.php">Create</a>
     <a class="" href="grades-view.php">Read</a>
+    <a class="active" href="">Attendance</a>
+    <a class="" href="attendance-add.php">Create</a>
+    <a class="" href="attendance-view.php">Read</a>
 
 </div>
