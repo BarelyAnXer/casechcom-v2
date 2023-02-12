@@ -28,12 +28,12 @@ if (isset($_POST['UPDATE'])) {
 
 ?>
 
-<?php include "sidebar.php" ?>
+<?php include "admin-navbar.php" ?>
 
 <div class="content">
     <form action="" method="POST" novalidate>
         name: <input type="text" name="name" value="<?php echo $subject['name'] ?>"><br>
-        descrpition: <input type="text" name="description" value=""><br>
+        descrpition: <input type="text" name="description" value="<?php echo $subject['description'] ?>"><br>
         <br>
 
         <input type="submit" value="UPDATE" name="UPDATE">
@@ -56,7 +56,7 @@ if (isset($_POST['UPDATE'])) {
                 <tr>
                     <td><?php echo $row['subject_id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td>description</td>
+                    <td><?php echo $row['description']; ?></td>
                     <td>
                         <a href="subject-edit.php?id=<?php echo $row['subject_id']; ?>">EDIT</a>
                         <a href="subject-crd.php?id=<?php echo $row['subject_id']; ?>">DELETE</a>

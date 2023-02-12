@@ -1,7 +1,7 @@
 <?php
 include("config/connection.php");
-//
 session_start();
+
 // could make this as an array and loop through it
 $emailError = "";
 $passwordError = "";
@@ -44,13 +44,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h1>login</h1>
-<form action="login.php" method="POST" novalidate>
-    email: <input type="text" name="email" value=""><br>
-    <?php echo $emailError ?>
-    <br>
-    password: <input type="password" name="password" value=""><br>
-    <?php echo $passwordError ?>
-    <br>
-    <input type="submit" value="login" name="login">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CASECHOM LOGIN</title>
+    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="icon" href="imagesogonew.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div>
+        <div class="logo"></div>
+        <div class="footer"></div>
+        <div class="background">
+
+        </div>
+    </div>
+    <div id="casechomtxt">Catholic Servants of Christ <br>Community School</div>
+    <div id="infosystxt">INFORMATION SYSTEM</div>
+    <div id="copyrighttxt">Copyright ©2002 All Rights Reserved. CASECHOM</div>
+    <div id="invalidtxt"> Invalid password or email!</div>
+
+    <div class="container">
+    <form class="login_form" action="login.php" method="POST" novalidate>
+            <div class="email font">Email</div>
+            <input class="emailfield" type="email" name="email" value="">
+            <br><?php echo $emailError ?><br>
+            <div class="pass font2">Password</div>
+            <input class="passwordfield" type="password" name="password" value="">
+            <br> <?php echo $passwordError ?><br>
+            <input type="checkbox" class="checkbox1"><label class="checkbox">Remember Me</label>
+
+            <a href="#">Forgot Password?</a>
+        <div >
+            <br>
+        <input class="loginbtn" type="submit" value="login" name="login">
+        </div>
+           
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -32,23 +32,24 @@ if (isset($_POST['SAVE'])) {
 ?>
 
 
-<?php include "sidebar.php" ?>
+<?php include "admin-navbar.php" ?>
 
 <div class="content">
+    <div class="card card-outline card-primary">
+    <div style="padding-top: 50px; padding-bottom: 50px;" >
+        <form align="center" action="" method="POST" novalidate>
+            name: <input type="text" name="name" value="">
 
-    <form action="" method="POST" novalidate>
-        name: <input type="text" name="name" value=""><br>
-        <br>
+            <input type="submit" value="SAVE" name="SAVE">
+    </div>
 
-        <input type="submit" value="SAVE" name="SAVE">
-    </form>
 
-    <table>
+    <table border="2px" bgcolor="black" align="center"  class="table table-hover table-striped table-bordered"border="2px">
         <thead>
-        <tr>
-            <th>id</th>
-            <th>class name</th>
-            <th>acitons</th>
+        <tr align="center">
+            <th width="100">ID</th>
+            <th width="100">class name</th>
+            <th width="100">actions</th>
         </tr>
         </thead>
         <tbody>
@@ -56,12 +57,16 @@ if (isset($_POST['SAVE'])) {
         if ($rows > 0) {
             foreach ($rows as $row) {
                 ?>
-                <tr>
-                    <td><?php echo $row['classes_id']; ?></td>
+                <tr align="center">
+                    <td ><?php echo $row['classes_id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td>
-                        <a href="classes-edit.php?id=<?php echo $row['classes_id']; ?>">EDIT</a>
-                        <a href="classes-crd.php?id=<?php echo $row['classes_id']; ?>">DELETE</a>
+                        <a href="classes-edit.php?id=<?php echo $row['classes_id']; ?>" class="btn btn-primary btn-flat ">
+                            <i class="material-icons">edit_note</i>
+                        </a>
+                        <a href="classes-crd.php?id=<?php echo $row['classes_id']; ?>" class="btn btn-danger btn-flat">
+                            <i class="material-icons">delete</i>
+                        </a>
                     </td>
                 </tr>
                 <?php
@@ -70,5 +75,8 @@ if (isset($_POST['SAVE'])) {
         ?>
         </tbody>
     </table>
+    </div>
 </div>
+
+<?php include "footer.php" ?>
 

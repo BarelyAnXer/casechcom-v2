@@ -28,7 +28,9 @@ if (isset($_POST['UPDATE'])) {
 
 ?>
 
-<?php include "sidebar.php" ?>
+
+<?php include "admin-navbar.php" ?>
+
 
 <div class="content">
     <form action="" method="POST" novalidate>
