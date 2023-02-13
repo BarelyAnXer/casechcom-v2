@@ -9,15 +9,15 @@ if (isset($_POST['register'])) {
     $lastname = $_POST['lastname'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
-    $hiredate = $_POST['hiredate'];
+    $classes_id = $_POST['classes_id'];
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'teacher')";
 
     if (mysqli_query($conn, $user_sql)) {
-        $teacher_id = $conn->insert_id;
-        $teacher_sql = "INSERT INTO teacher (user_id, hire_date) VALUES ('$teacher_id', '$hiredate')";
+        $student_id = $conn->insert_id;
+        $teacher_sql = "INSERT INTO student (user_id, classes_id) VALUES ('$student_id', '$classes_id')";
         if ($conn->query($teacher_sql) === TRUE) {
             echo "New teacher record created successfully";
         } else {
@@ -28,21 +28,16 @@ if (isset($_POST['register'])) {
         echo "Error: " . $person_sql . "<br>" . $conn->error;
     }
 
-
 }
-
 ?>
 
 <?php include "admin-navbar.php" ?>
 
 <html>
 <head>
-
     <link rel="stylesheet" href="css/Styletwo.css">
-
 </head>
 <body>
-
 
 <div class="col-lg-12">
     <form action="" method="post">
@@ -97,13 +92,13 @@ if (isset($_POST['register'])) {
                                 <div class="form-group">
                                     <label for="" class="control-label">Address</label>
                                     <textarea name="address" id="address" cols="30" rows="4"
-                                              class="form-control"></textarea>
+                                              class="form-control" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Class</label>
-                                    <select name="classes" class="custom-select custom-select-sm" required>
+                                    <select name="classes_id" class="custom-select custom-select-sm" required>
 
                                         <?php
                                         $user_sql = "SELECT * FROM classes";
@@ -117,7 +112,6 @@ if (isset($_POST['register'])) {
                                             }
                                         }
                                         ?>
-
                                     </select>
                                 </div>
 
@@ -144,7 +138,6 @@ if (isset($_POST['register'])) {
 </html>
 
 <?php include "footer.php" ?>
-
 
 
 

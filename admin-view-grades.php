@@ -88,7 +88,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                 <td class="text-center">
                                                     <div class="btn-group">
-                                                        <a href="grade-edit.phpd=<?php echo $row['grade_id']; ?>"
+                                                        <a href="grade-edit.php=<?php echo $row['grade_id']; ?>"
                                                            class="btn btn-primary btn-flat delete_student">
                                                             <i class="material-icons">edit</i>
                                                         </a>

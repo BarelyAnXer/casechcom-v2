@@ -88,13 +88,10 @@
                     <i class="material-icons">psychology</i><span>Behavior</span></a>
                 <ul class="collapse list-unstyled menu" id="pageSubmenu4">
                     <li>
-                        <a href="#">Manage Behavior</a>
+                        <a href="">Manage Behavior</a>
                     </li>
                     <li>
                         <a href="#">View Behavior Records</a>
-                    </li>
-                    <li>
-                        <a href="#">Restore Behavior Reports</a>
                     </li>
                 </ul>
             </li>

@@ -21,7 +21,7 @@ if (isset($_POST['register'])) {
 
 ?>
 
-<?php include "sidebar.php" ?>
+<?php include "admin-navbar.php" ?>
 
 <div class="content">
     <h1>register student</h1>

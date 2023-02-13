@@ -57,11 +57,11 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <td><?php echo $row['gender']; ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <a href="student-edit.phpd=<?php echo $row['user_id']; ?>"
-                                           class="btn btn-primary btn-flat ">
+                                        <a href="student-edit.php?id=<?php echo $row['user_id']; ?>"
+                                           class="btn btn-primary btn-flat">
                                             <i class="material-icons">edit_note</i>
                                         </a>
-                                        <a href="student-delete.phpd=<?php echo $row['user_id']; ?>"
+                                        <a href="student-delete.php?id=<?php echo $row['user_id']; ?>"
                                            class="btn btn-danger btn-flat delete_student">
                                             <i class="material-icons">delete</i>
                                         </a>

@@ -6,7 +6,7 @@ $rows2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM classes WHERE classes_id=$id";
+    $sql = "DELETE FROM attendance WHERE attendance_id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: attendance-crd.php");
