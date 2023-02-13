@@ -5,6 +5,8 @@
 include "./config/connection.php";
 $result = mysqli_query($conn, "select * from user join teacher t on user.user_id = t.user_id");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
 ?>
 
 
@@ -33,7 +35,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th>User ID</th>
                         <th>Email</th>
                         <th>Name</th>
-                        <th>Classes</th>
+                        <!--                        <th>Classes</th>-->
                         <th>Hire Date</th>
                         <th>Address</th>
                         <th>Gender</th>
@@ -49,17 +51,22 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <td class="text-center"><?php echo $row['user_id']; ?></td>
                                 <td class="text-center"><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['firstname'] . " " . $row['middlename'] . " " . $row['lastname']; ?></td>
-                                <td>TEMP CLASSES / SUBJECTS HERE</td>
+                                <!--                                <td>--><?php
+                                ////                                    $result = mysqli_query($conn, "SELECT DISTINCT t.teacher_id, c.name, c.classes_id FROM teaches t JOIN classes c ON t.classes_id = c.classes_id WHERE t.teacher_id = '$teacher_id'");
+                                ////                                    $rows2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                ////
+                                ////                                    echo $rows2['name']
+                                //                                    ?><!--</td>-->
                                 <td><?php echo $row['hire_date']; ?></td>
                                 <td><?php echo $row['address']; ?></td>
                                 <td><?php echo $row['gender']; ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <a href="teacher-edit.php&id=<?php echo $row['user_id']; ?>"
+                                        <a href="teacher-edit.php?id=<?php echo $row['user_id']; ?>"
                                            class="btn btn-primary btn-flat ">
                                             <i class="material-icons">edit_note</i>
                                         </a>
-                                        <a href="teacher-delete.php&id=<?php echo $row['user_id']; ?>"
+                                        <a href="teacher-delete.php?id=<?php echo $row['user_id']; ?>"
                                            class="btn btn-danger btn-flat delete_student">
                                             <i class="material-icons">delete</i>
                                         </a>

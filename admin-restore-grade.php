@@ -1,5 +1,7 @@
 <?php include "admin-navbar.php" ?>
 
+<!--Fields for restoring the information of the grades in the database-->
+    <!--This is intended for the PHP flow-->
 <?php
 include "./config/connection.php";
 $result = mysqli_query($conn, "SELECT grade.grade_id,
@@ -22,7 +24,7 @@ FROM casechcom.grade
          JOIN casechcom.user user2 ON teacher.user_id = user2.user_id;");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-
+    <!--Layout for HTML restoring the information of the grades in the database-->
     <html>
 
 

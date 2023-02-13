@@ -1,6 +1,6 @@
 <?php include "admin-navbar.php" ?>
 
-
+<!-- Fields for The PHP layout of the inputing the grades-->
 <?php
 include("./config/connection.php");
 
@@ -23,7 +23,7 @@ values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '
     }
 }
 ?>
-
+<!-- Area for The HTML layout of the inputing the grades-->
 <html>
 
 <head>

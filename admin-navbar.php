@@ -88,7 +88,7 @@
                     <i class="material-icons">psychology</i><span>Behavior</span></a>
                 <ul class="collapse list-unstyled menu" id="pageSubmenu4">
                     <li>
-                        <a href="">Manage Behavior</a>
+                        <a href="behavior.php">Manage Behavior</a>
                     </li>
                     <li>
                         <a href="#">View Behavior Records</a>
@@ -132,6 +132,19 @@
 
             <li class="">
                 <a href="subject-crd.php"><i class="material-icons">badge</i><span>Subjects</span></a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="material-icons">border_color</i><span>Teaches</span></a>
+                <ul class="collapse list-unstyled menu" id="pageSubmenu6">
+                    <li>
+                        <a href="teaches-add.php">Add Teaches</a>
+                    </li>
+                    <li>
+                        <a href="teaches-view.php">View Teaches</a>
+                    </li>
+                </ul>
             </li>
 
 
