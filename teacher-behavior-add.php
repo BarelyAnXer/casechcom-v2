@@ -145,7 +145,7 @@ WHERE u.user_id = '$id'
                 <label class="col-md-4 control-label" for="first">MakaDiyos</label>
 
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="first" name="behavior1" type="text" value="">
+                    <input class="form-control input-sm" id="first" name="behavior1" type="text" value="" required>
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@ WHERE u.user_id = '$id'
                 <label class="col-md-4 control-label" for="second">Makatao</label>
 
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="second" name="behavior2" type="text" value="">
+                    <input class="form-control input-sm" id="second" name="behavior2" type="text" value="" required>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@ WHERE u.user_id = '$id'
             <div class="col-md-8">
                 <label class="col-md-4 control-label" for="third">Maka-kalikasan</label>
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="third" name="behavior3" type="text" value="">
+                    <input class="form-control input-sm" id="third" name="behavior3" type="text" value="" required>
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ WHERE u.user_id = '$id'
             <div class="col-md-8">
                 <label class="col-md-4 control-label" for="fourth">Makabansa</label>
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="fourth" name="behavior4" type="text" value="">
+                    <input class="form-control input-sm" id="fourth" name="behavior4" type="text" value="" required>
                 </div>
             </div>
         </div>

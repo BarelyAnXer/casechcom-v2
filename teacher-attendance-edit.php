@@ -47,11 +47,11 @@ $attendance = $rows[0];
                 <input type="text" hidden="" name="attendance_id" value="<?php echo $attendance['attendance_id'] ?>">
                 student : <input type="text" disabled
                                  value="<?php echo $attendance['student_firstname'] . " " . $attendance['student_lastname'] ?>"><br>
-                time in : <input align="center" type="time" name="timein"
+                time in : <input align="center" type="time" name="timein" required
                                  value="<?php echo $attendance['timein'] ?>"><br>
-                time out: <input align="center" type="time" name="timeout"
+                time out: <input align="center" type="time" name="timeout" required
                                  value="<?php echo $attendance['timeout'] ?>"><br>
-                date <input align="center" type="date" name="date" value="<?php echo $attendance['date'] ?>">
+                date <input align="center" type="date" name="date" required value="<?php echo $attendance['date'] ?>">
 
 
                 <input align="center" type="submit" value="Update" name="Update">

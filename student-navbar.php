@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styletwo.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!----css3---->
+    <link rel="stylesheet" href="css/custom.css">
  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 
@@ -28,9 +32,9 @@
                   
                 </div>
                 <div class="nav navbar-nav1">
-                <a href="#" class="btn">Home</a>
+                <a href="student-dashboard.php" class="btn">Home</a>
                 <a href="#" class="btn">Instruction</a>
-                    <a href="#" class="btn">Log Out</a>
+                    <a href="logout.php" class="btn">Log Out</a>
                    
                 </div>
             </div>

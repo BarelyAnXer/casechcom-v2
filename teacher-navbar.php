@@ -96,9 +96,6 @@ if (isset($_SESSION['user'])) {
                     <li>
                         <a href="teacher-view-grades.php">View Grades Records</a>
                     </li>
-                    <li>
-                        <a href="teacher-restore-grade.php">Restore Grades Reports</a>
-                    </li>
                 </ul>
             </li>
 

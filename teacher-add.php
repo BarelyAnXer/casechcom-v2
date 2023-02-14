@@ -26,11 +26,11 @@ if (isset($_POST['register'])) {
 //            echo "New teacher record created successfully";
             header("Location: teacher-view.php");
         } else {
-            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
+//            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
         }
 
     } else {
-        echo "Error: " . $person_sql . "<br>" . $conn->error;
+//        echo "Error: " . $person_sql . "<br>" . $conn->error;
     }
 
 

@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($emailError) && empty($passwordError)) {
             $result = mysqli_query($conn, "select * from user where email='$email'");
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            echo '<pre>' . var_export($rows, true) . '</pre>';
+//            echo '<pre>' . var_export($rows, true) . '</pre>';
             if (count($rows)) {
                 $user = $rows[0];
                 if (password_verify($password, $user['password'])) {
@@ -82,22 +82,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form2Example11">Username</label>
-                                        <input type="email" name="email" value="" id="form2Example11" class="form-control"
-                                               placeholder="Email address" />
+                                        <input type="email" name="email" value="" id="form2Example11"
+                                               class="form-control"
+                                               placeholder="Email address"/>
 
                                     </div>
                                     <?php echo $emailError ?>
                                     <label class="form-label" for="form2Example22">Password</label>
                                     <div class="form-outline mb-4">
-                                        <input type="password" name="password" value="" id="form2Example22" class="form-control"
-                                               placeholder="Email address" />
+                                        <input type="password" name="password" value="" id="form2Example22"
+                                               class="form-control"
+                                               placeholder="Email address"/>
 
                                     </div>
                                     <?php echo $passwordError ?>
 
                                     <div class="text-center pt-1 mb-5 pb-1">
-                                        <button stye="width: 80" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" value="login" name="login" type="submit">Log
-                                            in</button>
+                                        <button stye="width: 80"
+                                                class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                                value="login" name="login" type="submit">Log
+                                            in
+                                        </button>
                                         <br>
                                         <a class="text-muted" href="#!">Forgot password?</a>
                                     </div>
@@ -115,8 +120,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                 <h4 class="mb-4">We are more than just a company</h4>
-                                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                    eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud
                                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
                         </div>

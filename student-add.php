@@ -26,11 +26,11 @@ if (isset($_POST['register'])) {
         if ($conn->query($teacher_sql) === TRUE) {
 //            echo "New teacher record created successfully";
         } else {
-            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
+//            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
         }
 
     } else {
-        echo "Error: " . $person_sql . "<br>" . $conn->error;
+//        echo "Error: " . $person_sql . "<br>" . $conn->error;
     }
 
 }

@@ -18,7 +18,7 @@ FROM casechcom.grade
          JOIN casechcom.student ON grade.student_id = student.student_id
          JOIN casechcom.subject ON grade.subject_id = subject.subject_id
          JOIN casechcom.teacher ON grade.teacher_id = teacher.teacher_id
-         JOIN casechcom.user user1 ON student.user_id = user1.user_id 
+         JOIN casechcom.user user1 ON student.user_id = user1.user_id
          JOIN casechcom.user user2 ON teacher.user_id = user2.user_id;");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
@@ -49,7 +49,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="card-body">
                             <div class="" role="alert"></div>
-                            <table id="datatableid" width="150" class="table table-hover table-bordered" id="list">
+                            <table id="datatableid" width="150" class="table tabe-hover table-bordered" id="list">
                                 <colgroup align="center">
                                     <col width="30%">
                                     <col width="30%">
@@ -88,11 +88,11 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                 <td class="text-center">
                                                     <div class="btn-group">
-                                                        <a href="grade-edit.php?id=<?php echo $row['grade_id']; ?>"
+                                                        <a href="grade-edit.php=<?php echo $row['grade_id']; ?>"
                                                            class="btn btn-primary btn-flat delete_student">
                                                             <i class="material-icons">edit</i>
                                                         </a>
-                                                        <a href="grade-delete.php?id=<?php echo $row['grade_id']; ?>"
+                                                        <a href="grade-delete.phpd=<?php echo $row['grade_id']; ?>"
                                                            class="btn btn-danger btn-flat delete_student">
                                                             <i class="material-icons">delete</i>
                                                         </a>

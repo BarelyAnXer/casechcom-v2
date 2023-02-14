@@ -1,15 +1,36 @@
-<?php include "admin-navbar.php" ?>
+<?php include "student-navbar.php" ?>
+<?php
+include "./config/connection.php";
+$result = mysqli_query($conn, "SELECT grade.grade_id,
+       student.student_id,
+       user1.firstname AS student_firstname,
+       user1.lastname AS student_lastname,
+       user2.firstname AS teacher_firstname,
+       user2.lastname AS teacher_lastname,
+       subject.name AS subject_name,
+       grade.gradeq1,
+       grade.gradeq2,
+       grade.gradeq3,
+       grade.gradeq4,
+       isDeleted
+FROM casechcom.grade
+         JOIN casechcom.student ON grade.student_id = student.student_id
+         JOIN casechcom.subject ON grade.subject_id = subject.subject_id
+         JOIN casechcom.teacher ON grade.teacher_id = teacher.teacher_id
+         JOIN casechcom.user user1 ON student.user_id = user1.user_id 
+         JOIN casechcom.user user2 ON teacher.user_id = user2.user_id;");
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+
 
 
     <html>
-
 
     <head>
         <link rel="stylesheet" href="css/Styletwo.css">
     </head>
 
     <body>
-
 
     <div class="content">
         <div class="animated fadeIn">
