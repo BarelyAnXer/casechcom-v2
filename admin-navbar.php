@@ -134,16 +134,12 @@
                 <a href="subject-crd.php"><i class="material-icons">badge</i><span>Subjects</span></a>
             </li>
 
-            <li class="dropdown">
-                <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">cast_for_education</i><span>Teaches</span></a>
-                <ul class="collapse list-unstyled menu" id="pageSubmenu6">
-                    <li>
-                        <a href="teaches-add.php">Manages Teaches</a>
-                    </li>
-
-                </ul>
+            <li class="">
+                <a href="teaches-add.php"><i
+                            class="material-icons">cast_for_education</i><span>Teaches</span></a>
             </li>
+
+
         </ul>
 
 

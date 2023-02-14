@@ -47,11 +47,11 @@ if (isset($_POST['SAVE'])) {
                 foreach ($rows as $row) {
                     ?>
                     <tr align="center">
-                        <td><?php echo $row['user_id']; ?></td>
+                        <td><?php echo $row['student_id']; ?></td>
                         <td><?php echo $row['firstname'] . " " . $row['middlename'] . " " . $row['middlename'] . " " . $row['lastname']; ?></td>
                         <td><?php echo $row['balance']; ?></td>
                         <td>
-                            <a href="finance-edit.php?id=<?php echo $row['user_id']; ?>"
+                            <a href="finance-edit.php?id=<?php echo $row['student_id']; ?>"
                                class="btn btn-primary btn-flat ">
                                 <i class="material-icons">edit_note</i>
                             </a>

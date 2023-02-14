@@ -33,7 +33,7 @@ if (isset($_POST['SAVE'])) {
         <div style="padding-top: 50px; padding-bottom: 50px;">
             <form align="center" action="" method="POST" novalidate>
                 balance: <input type="text" name="balance" value="<?php echo $finance['balance'] ?>">
-                <input type="submit" name="SAVE" value="SAVE" type>
+                <input type="submit" name="SAVE" value="SAVE" required>
         </div>
 
 

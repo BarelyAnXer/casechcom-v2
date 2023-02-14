@@ -53,7 +53,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <td class="text-center"><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['firstname'] . " " . $row['middlename'] . " " . $row['lastname']; ?></td>
                                 <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['address']; ?></td>
+                                <td><?php echo $row['province'] . " " . $row['city'] . " " . $row['barangay'] . " " . $row['street'] . " " . $row['zip']; ?></td>
                                 <td><?php echo $row['gender']; ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">

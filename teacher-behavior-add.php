@@ -1,6 +1,5 @@
-<?php include "admin-navbar.php" ?>
+<?php include "teacher-navbar.php" ?>
 
-<!-- Fields for The PHP layout of the inputing the grades-->
 <?php
 include("./config/connection.php");
 
@@ -9,17 +8,17 @@ if (isset($_POST['save'])) {
     $classes_id = $_POST['classes_id'];
     $subject_id = $_POST['subject_id'];
     $student_id = $_POST['student_id'];
-    $grade1 = $_POST['grade1'];
-    $grade2 = $_POST['grade2'];
-    $grade3 = $_POST['grade3'];
-    $grade4 = $_POST['grade4'];
+    $behavior1 = $_POST['behavior1'];
+    $behavior2 = $_POST['behavior2'];
+    $behavior3 = $_POST['behavior3'];
+    $behavior4 = $_POST['behavior4'];
 
-    $grade_sql = "insert into grade (student_id, subject_id, classes_id, teacher_id, gradeq2, gradeq3, gradeq4, gradeq1)
-values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '$grade2', '$grade3', '$grade4')";
-    if (mysqli_query($conn, $grade_sql)) {
+    $behavior_sql = "insert into behavior (student_id, subject_id, teacher_id, behavior1, behavior2, behavior3, behavior4)
+values ('$student_id', '$subject_id', '$teacher_id', '$behavior1', '$behavior2', '$behavior3', '$behavior4')";
+    if (mysqli_query($conn, $behavior_sql)) {
 //        echo "New grade record created successfully";
     } else {
-        echo "Error: " . $grade_sql . "<br>" . $conn->error;
+        echo "Error: " . $behavior_sql . "<br>" . $conn->error;
     }
 }
 ?>
@@ -77,39 +76,29 @@ values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '
 <form class="form-horizontal well span4" action="" method="POST">
 
     <fieldset>
-        <legend>Add Grades</legend>
-        <div class="form-group">
-            <div class="col-md-8">
-
-                <label class="col-md-4 control-label" for="subjdesc">Name</label>
-
-                <div class="col-md-8">
-                    <select name="teacher_id" onchange="getClasses(this.value)" id="teacher">
-                        <option value="">---Select Teacher---</option>
-                        <?php
-                        $grade_sql = "SELECT * FROM user JOIN teacher t on user.user_id = t.user_id";
-                        $res = mysqli_query($conn, $grade_sql);
-                        $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
-                        if ($rows > 0) {
-                            foreach ($rows as $row) {
-                                ?>
-                                <option value="<?php echo $row['teacher_id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
-                                <?php
-                            }
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-8">
                 <label class="col-md-4 control-label" for="">Subject class</label>
 
                 <div class="col-md-8">
                     <select name="classes_id" id="classes" onchange="getSubjects(this.value)">
-                        <option value="">---Select Class---</option>
+                        <?php
+                        $user = unserialize($_SESSION['user']);
+                        $id = $user['user_id'];
+
+                        $result = mysqli_query($conn, "SELECT DISTINCT t.teacher_id, c.name, c.classes_id, u.user_id
+FROM teaches t
+         JOIN classes c ON t.classes_id = c.classes_id
+         join teacher t2 on t.teacher_id = t2.teacher_id
+         join user u on u.user_id = t2.user_id
+WHERE u.user_id = '$id'
+");
+                        $classes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                        echo "<option value=''>---Select Class---</option>";
+                        foreach ($classes as $classe) {
+                            echo "<option value='" . $classe['classes_id'] . "'>" . $classe['name'] . "</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -122,6 +111,18 @@ values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '
                 <div class="col-md-8">
                     <select name="subject_id" id="subject">
                         <option value="">---Select Subject---</option>
+                        <?php
+                        $user = unserialize($_SESSION['user']);
+                        $id = $user['user_id'];
+                        $classes_id = $_POST["classes_id"];
+                        $teacher_id = $_POST["teacher_id"];
+                        $result = mysqli_query($conn, "SELECT subject.name, subject.subject_id FROM subject JOIN teaches ON subject.subject_id = teaches.subject_id WHERE teaches.classes_id = '$classes_id' AND teaches.teacher_id = '$teacher_id'");
+                        $subjects = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                        echo "<option value=''>---Select Subject---</option>";
+                        foreach ($subjects as $subject) {
+                            echo "<option value='" . $subject['subject_id'] . "'>" . $subject['name'] . "</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -141,35 +142,35 @@ values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '
 
         <div class="form-group">
             <div class="col-md-8">
-                <label class="col-md-4 control-label" for="first">First Grading</label>
+                <label class="col-md-4 control-label" for="first">MakaDiyos</label>
 
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="first" name="grade1" type="text" value="" required>
+                    <input class="form-control input-sm" id="first" name="behavior1" type="text" value="">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-8">
-                <label class="col-md-4 control-label" for="second">Second Grading</label>
+                <label class="col-md-4 control-label" for="second">Makatao</label>
 
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="second" name="grade2" type="text" value="" required>
+                    <input class="form-control input-sm" id="second" name="behavior2" type="text" value="">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-8">
-                <label class="col-md-4 control-label" for="third">Third Grading</label>
+                <label class="col-md-4 control-label" for="third">Maka-kalikasan</label>
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="third" name="grade3" type="text" value="" required>
+                    <input class="form-control input-sm" id="third" name="behavior3" type="text" value="">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-8">
-                <label class="col-md-4 control-label" for="fourth">Fourth Grading</label>
+                <label class="col-md-4 control-label" for="fourth">Makabansa</label>
                 <div class="col-md-8">
-                    <input class="form-control input-sm" id="fourth" name="grade4" type="text" value="" required>
+                    <input class="form-control input-sm" id="fourth" name="behavior4" type="text" value="">
                 </div>
             </div>
         </div>

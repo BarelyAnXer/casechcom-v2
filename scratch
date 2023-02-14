@@ -7,9 +7,14 @@
 // session for protected routes
 // wysiwyg form control
 
-<!--* Lahat ng table may current_timestamp-->
-<!--* Soft delete lang   -https://stackoverflow.com/questions/5020568/soft-delete-best-practices-php-mysql -->
-
 Unique email address
 image
 crud
+
+
+
+teachers
+crud grades
+crud behavior
+view attendance
+

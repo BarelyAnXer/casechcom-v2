@@ -17,7 +17,7 @@ if (isset($_POST['save'])) {
     $behavior_sql = "insert into behavior (student_id, subject_id, teacher_id, behavior1, behavior2, behavior3, behavior4)
 values ('$student_id', '$subject_id', '$teacher_id', '$behavior1', '$behavior2', '$behavior3', '$behavior4')";
     if (mysqli_query($conn, $behavior_sql)) {
-        echo "New grade record created successfully";
+//        echo "New grade record created successfully";
     } else {
         echo "Error: " . $behavior_sql . "<br>" . $conn->error;
     }

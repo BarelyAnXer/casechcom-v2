@@ -8,12 +8,16 @@ if (isset($_POST['register'])) {
     $middlename = $_POST['middlename'];
     $lastname = $_POST['lastname'];
     $gender = $_POST['gender'];
-    $address = $_POST['address'];
+    $province = $_POST['province'];
+    $city = $_POST['city'];
+    $barangay = $_POST['barangay'];
+    $street = $_POST['street'];
+    $zip = $_POST['zip'];
     $hiredate = $_POST['hiredate'];
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'teacher')";
+    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, province, city, barangay, street, zip, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$province', '$city', '$barangay', '$street', '$zip', '$gender', 'teacher')";
 
     if (mysqli_query($conn, $user_sql)) {
         $teacher_id = $conn->insert_id;
@@ -85,8 +89,6 @@ if (isset($_POST['register'])) {
                                     <input type="text" class="form-control form-control-sm" name="lastname" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="" class="control-label">Gender</label>
                                 <select name="gender" id="" class="custom-select custom-select-sm" required>
@@ -94,13 +96,46 @@ if (isset($_POST['register'])) {
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Address</label>
-                                    <textarea name="address" id="address" cols="30" rows="4"
-                                              class="form-control"></textarea>
+                                    <label for="" class="control-label">Province</label>
+                                    <input type="text" class="form-control form-control-sm" name="province" required>
                                 </div>
                             </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">City</label>
+                                    <input type="text" class="form-control form-control-sm" name="city" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Barangay</label>
+                                    <input type="text" class="form-control form-control-sm" name="barangay" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Street</label>
+                                    <input type="text" class="form-control form-control-sm" name="street" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Zip</label>
+                                    <input type="text" class="form-control form-control-sm" name="zip" required>
+                                </div>
+                            </div>
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Hire Date</label>

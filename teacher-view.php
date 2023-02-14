@@ -58,7 +58,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 ////                                    echo $rows2['name']
                                 //                                    ?><!--</td>-->
                                 <td><?php echo $row['hire_date']; ?></td>
-                                <td><?php echo $row['address']; ?></td>
+                                <td><?php echo $row['province'] . " " . $row['city'] . " " . $row['barangay'] . " " . $row['street'] . " " . $row['zip']; ?></td>
                                 <td><?php echo $row['gender']; ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">

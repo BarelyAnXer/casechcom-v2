@@ -123,7 +123,7 @@ $teacher = $rows[0];
                 </div>
                 <div class="card-footer border-top border-info">
                     <input style="height: 40px; width:150px; float: right; border-radius : 22px; border-color:blueviolet;"
-                           type="submit" value="update" name="update">
+                           type="submit" value="update" name="update" required>
                     <div class="d-flex w-100 justify-content-center align-items-center">
                     </div>
                 </div>
