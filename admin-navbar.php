@@ -58,6 +58,7 @@
             <li class="dropdown">
                 <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="material-icons">group_add</i><span>Students</span></a>
+
                 <ul class="collapse list-unstyled menu" id="pageSubmenu2">
                     <li>
                         <a href="student-add.php">Add Student</a>
@@ -70,7 +71,7 @@
 
             <li class="dropdown">
                 <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">equalizer</i>
+                    <i class="material-icons">group_add</i>
 
 
                     <span>Teacher</span></a>
@@ -88,17 +89,17 @@
                     <i class="material-icons">psychology</i><span>Behavior</span></a>
                 <ul class="collapse list-unstyled menu" id="pageSubmenu4">
                     <li>
-                        <a href="behavior.php">Manage Behavior</a>
+                        <a href="behavior-add.php">Manage Behavior</a>
                     </li>
                     <li>
-                        <a href="#">View Behavior Records</a>
+                        <a href="behaviour-view.php">View Behavior Records</a>
                     </li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">border_color</i><span>Grades</span></a>
+                    <i class="material-icons">star</i><span>Grades</span></a>
                 <ul class="collapse list-unstyled menu" id="pageSubmenu5">
                     <li>
                         <a href="admin-input-grades.php">Manage Grades</a>
@@ -114,40 +115,35 @@
 
 
             <li class="">
-                <a href="finance-crd.php"><i class="material-icons">photo_library</i><span>Finance</span></a>
+                <a href="finance-crd.php"><i class="material-icons">payments</i><span>Finance</span></a>
             </li>
 
             <li class="">
-                <a href="digital-libraries.php"><i class="material-icons">photo_library</i><span>Libraries</span></a>
+                <a href="digital-libraries.php"><i class="material-icons">app_shortcut</i><span>Libraries</span></a>
             </li>
 
             <li class="">
-                <a href="attendance-crd.php"><i class="material-icons">photo_library</i><span>Attendance</span></a>
+                <a href="attendance-crd.php"><i class="material-icons">insert_chart</i><span>Attendance</span></a>
             </li>
 
 
             <li class="">
                 <a href="classes-crd.php"><i class="material-icons">groups</i><span>Classes</span></a>
             </li>
-
             <li class="">
                 <a href="subject-crd.php"><i class="material-icons">badge</i><span>Subjects</span></a>
             </li>
 
             <li class="dropdown">
                 <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">border_color</i><span>Teaches</span></a>
+                    <i class="material-icons">cast_for_education</i><span>Teaches</span></a>
                 <ul class="collapse list-unstyled menu" id="pageSubmenu6">
                     <li>
-                        <a href="teaches-add.php">Add Teaches</a>
+                        <a href="teaches-add.php">Manages Teaches</a>
                     </li>
-                    <li>
-                        <a href="teaches-view.php">View Teaches</a>
-                    </li>
+
                 </ul>
             </li>
-
-
         </ul>
 
 

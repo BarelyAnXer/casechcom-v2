@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div>
                     <a href="#">
-                        <img src="imagesogonew.png" width="50" height="50">
+                        <img src="images/logonew.png" width="50" height="50">
                     </a>
                     
                 </div>

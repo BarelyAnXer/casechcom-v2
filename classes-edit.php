@@ -33,32 +33,41 @@ if (isset($_POST['UPDATE'])) {
 
 
 <div class="content">
-    <form action="" method="POST" novalidate>
-        name: <input type="text" name="name" value="<?php echo $classes['name'] ?>"><br>
+    <div class="card card-outline card-primary">
+        <div style="padding-top: 50px; padding-bottom: 50px;" >
+    <form  align="center" action="" method="POST" novalidate>
+        name: <input type="text" name="name" value="<?php echo $classes['name'] ?>">
+        <br>
         <br>
 
-        <input type="submit" value="UPDATE" name="UPDATE">
+        <input style="height: 40px; width:150px; float: bottom; border-radius : 22px; border-color:blueviolet; align: center;"
+                type="submit" value="UPDATE" name="UPDATE">
     </form>
+        </div>
 
-    <table>
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>classes name</th>
-            <th>actions</th>
-        </tr>
-        </thead>
+            <table border="2px" bgcolor="black" align="center"  class="table table-hover table-striped table-bordered"border="2px">
+                <thead>
+                <tr align="center">
+                    <th width="100">ID</th>
+                    <th width="100">class name</th>
+                    <th width="100">actions</th>
+                </tr>
+                </thead>
         <tbody>
         <?php
         if ($rows > 0) {
             foreach ($rows as $row) {
                 ?>
-                <tr>
+                <tr align="center">
                     <td><?php echo $row['classes_id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td>
-                        <a href="classes-edit.php?id=<?php echo $row['classes_id']; ?>">EDIT</a>
-                        <a href="classes-crd.php?id=<?php echo $row['classes_id']; ?>">DELETE</a>
+                        <a href="classes-edit.php?id=<?php echo $row['classes_id']; ?>" class="btn btn-primary btn-flat ">
+                            <i class="material-icons">edit_note</i>
+                        </a>
+                        <a href="classes-crd.php?id=<?php echo $row['classes_id']; ?>" class="btn btn-danger btn-flat">
+                            <i class="material-icons">delete</i>
+                        </a>
                     </td>
                 </tr>
                 <?php
@@ -67,5 +76,7 @@ if (isset($_POST['UPDATE'])) {
         ?>
         </tbody>
     </table>
+    </div>
 </div>
+    <?php include "footer.php" ?>
 

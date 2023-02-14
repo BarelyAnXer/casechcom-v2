@@ -1,6 +1,6 @@
 <?php
-include "./config/connection.php";
-session_start();
+//include "./config/connection.php";
+//session_start();
 $result = mysqli_query($conn, "select teaches.teaches_id, c.name as classes_name, s.name as subject_name, u.firstname, u.middlename, u.lastname
 from teaches
          join teacher t on t.teacher_id = teaches.teacher_id
@@ -10,17 +10,20 @@ from teaches
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
-<?php include "admin-navbar.php" ?>
+
 
 <div class="content">
-    <table>
+    <div class="card card-outline card-primary">
+        <div style="padding-top: 50px; padding-bottom: 50px;" >
+
+    <table border="2px" bgcolor="black" align="center"  class="table table-hover table-striped table-bordered"border="2px">
         <thead>
-        <tr>
-            <th>id</th>
-            <th>teacher</th>
-            <th>class name</th>
-            <th>subject name</th>
-            <th>action</th>
+        <tr align="center">
+            <th width="100">ID</th>
+            <th width="100">teacher</th>
+            <th width="100">class name</th>
+            <th width="100">subject name</th>
+            <th width="100">action</th>
 
         </tr>
         </thead>
@@ -29,13 +32,18 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         if ($rows > 0) {
             foreach ($rows as $row) {
                 ?>
-                <tr>
+                <tr align="center">
                     <td><?php echo $row['teaches_id']; ?></td>
                     <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td>
                     <td><?php echo $row['classes_name']; ?></td>
                     <td><?php echo $row['subject_name']; ?></td>
                     <td>
-                        <a href="./teaches-delete.php?id=<?php echo $row['teaches_id']; ?>">DELETE</a>
+
+
+                        <a href="./teaches-delete.php?id=<?php echo $row['teaches_id']; ?>" class="btn btn-danger btn-flat">
+                            <i class="material-icons">delete</i>
+                        </a>
+
                     </td>
                 </tr>
                 <?php
@@ -44,5 +52,6 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         ?>
         </tbody>
     </table>
+        </div>
 </div>
 

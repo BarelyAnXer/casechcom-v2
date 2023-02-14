@@ -39,8 +39,12 @@ if (isset($_POST['SAVE'])) {
     <div style="padding-top: 50px; padding-bottom: 50px;" >
         <form align="center" action="" method="POST" novalidate>
             name: <input type="text" name="name" value="">
+            <br>
+            <br>
+            <input style="height: 40px; width:150px; float: bottom; border-radius : 22px; border-color:blueviolet; align: center;"
 
-            <input type="submit" value="SAVE" name="SAVE">
+                    type="submit" value="SAVE" name="SAVE">
+            </form>
     </div>
 
 

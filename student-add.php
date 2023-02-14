@@ -13,7 +13,7 @@ if (isset($_POST['register'])) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'teacher')";
+    $user_sql = "INSERT INTO user (email, password, firstname, middlename, lastname, address, gender, level) VALUES ('$email', '$password', '$firstname', '$middlename', '$lastname', '$address', '$gender', 'student')";
 
     if (mysqli_query($conn, $user_sql)) {
         $student_id = $conn->insert_id;
@@ -79,8 +79,6 @@ if (isset($_POST['register'])) {
                                     <input type="text" class="form-control form-control-sm" name="lastname" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="" class="control-label">Gender</label>
                                 <select name="gender" id="" class="custom-select custom-select-sm" required>
@@ -88,6 +86,10 @@ if (isset($_POST['register'])) {
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Address</label>

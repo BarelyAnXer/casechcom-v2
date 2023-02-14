@@ -23,8 +23,10 @@ if (isset($_POST['register'])) {
 <?php include "admin-navbar.php" ?>
 
 <div class="content">
-    <h1>teahces</h1>
-    <form action="" method="post">
+    <div class="card card-outline card-primary">
+        <div style="padding-top: 20px; padding-bottom: 20px;  " >
+    <h1 align="center" >Teaches</h1>
+    <form align="center" action="" method="post">
         <span>teacher</span>
         <select name="teacher_id">
             <?php
@@ -41,6 +43,8 @@ if (isset($_POST['register'])) {
             ?>
         </select>
         <br>
+        <br>
+
 
         <span>class</span>
         <select name="classes_id">
@@ -58,6 +62,8 @@ if (isset($_POST['register'])) {
             ?>
         </select>
         <br>
+        <br>
+
 
         <span>subject</span>
         <select name="subject_id">
@@ -75,8 +81,18 @@ if (isset($_POST['register'])) {
             ?>
         </select>
         <br>
+        <br>
 
-        <input type="submit" value="register" name="register">
+        <input style="height: 40px; width:150px; float: bottom; border-radius : 22px; border-color:blueviolet; align: center;"
+                type="submit" value="register" name="register">
     </form>
-</div>
+        </div>
+    </div>
+
+
+
+
+
+<?php include "teaches-view.php" ?>
+<?php include "footer.php" ?>
 

@@ -35,7 +35,7 @@ if (isset($_POST['SAVE'])) {
         <div style="padding-top: 50px; padding-bottom: 50px;" >
     <form align="center" action="" method="POST" novalidate>
         name: <input  align="center" type="text" name="name" value=""><br><br>
-        descrpition: <input align="center" type="text" name="description" value="">
+        description: <input align="center" type="text" name="description" value="">
 
         <br><br>
         <input style="height: 40px; width:150px; float: bottom; border-radius : 22px; border-color:blueviolet; align: center;"
@@ -48,7 +48,7 @@ if (isset($_POST['SAVE'])) {
         <tr align="center">
             <th width="100">id</th>
             <th width="100">subject name</th>
-            <th width="100">Descirption</th>
+            <th width="100">Description</th>
             <th width="100">acitons</th>
         </tr>
         </thead>
@@ -81,3 +81,4 @@ if (isset($_POST['SAVE'])) {
     </div>
 </div>
 
+<?php include "footer.php" ?>

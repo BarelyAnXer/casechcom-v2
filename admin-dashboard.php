@@ -25,6 +25,7 @@
 <body>
 
 <?php include "admin-navbar.php" ?>
+<?php include "config/connection.php" ?>
 
 <div class="main-content">
 
@@ -38,14 +39,21 @@
                 </div>
                 <div class="card-content">
                     <p class="category"><strong>Attendance</strong></p>
-                    <h3 class="card-title">70,340</h3>
+                    <h3 class="card-title">
+                        <?php
+                        $sql = "select COUNT(student_id) as count from user join student s on user.user_id = s.user_id";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc ($result);
+                        echo $row['count'];
+                        ?>
+                    </h3>
                 </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-info">info</i>
-                        <a href="#pablo">See detailed report</a>
-                    </div>
-                </div>
+                <!--                <div class="card-footer">-->
+                <!--                    <div class="stats">-->
+                <!--                        <i class="material-icons text-info">info</i>-->
+                <!--                        <a href="#pablo">See detailed report</a>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">

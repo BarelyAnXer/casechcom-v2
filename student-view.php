@@ -24,7 +24,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <!--                </div>-->
             <!--            </div>-->
             <div class="card-body">
-                <table id="datatableid" class="table tabe-hover table-bordered" id="list">
+                <table id="datatableid" class="table table-hover table-bordered" id="list">
                     <colgroup>
                         <col width="5%">
                         <col width="15%">
@@ -93,20 +93,22 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-        // $(document).ready(function () {
-        //     $('#datatableid').DataTable({
-        //         "pagingType": "full_numbers",
-        //         "lengthMenu": [
-        //             [10, 25, 50, -1],
-        //             [10, 25, 50, "All"]
-        //         ],
-        //         responsive: true,
-        //         language: {
-        //             search: "_INPUT_",
-        //             searchPlaceholder: "Search Your Data",
-        //         }
-        //     });
-        // });
+        $(document).ready(function () {
+            $('#datatableid').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Your Data",
+                }
+
+
+            });
+        });
     </script>
 
     </body>

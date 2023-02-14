@@ -103,4 +103,5 @@ if (isset($_POST['SAVE'])) {
         </table>
     </div>
 </div>
+<?php include "footer.php" ?>
 

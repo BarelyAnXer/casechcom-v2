@@ -51,7 +51,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="card-body">
                             <div class="" role="alert"></div>
-                            <table id="datatableid" width="150" class="table tabe-hover table-bordered" id="list">
+                            <table id="datatableid" width="150" class="table table-hover table-bordered" id="list">
                                 <colgroup align="center">
                                     <col width="30%">
                                     <col width="30%">
