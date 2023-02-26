@@ -10,7 +10,7 @@
     width: 100%;
     filter: blur(2px);
     -webkit-filter: blur(2px);
-    background: url(/images/schoolbg.png) rgba(24, 46, 124, 0.836);
+    background: url(/old/images/schoolbg.png) rgba(24, 46, 124, 0.836);
     background-position: center;
     background-size: cover;
     background-blend-mode: multiply;
@@ -20,7 +20,7 @@
 }
 
 #logo {
-    background-image: url(/images/logonew.png);
+    background-image: url(/old/images/logonew.png);
     background-repeat: no-repeat;
     background-size: 70% 70%;
     width: 305px;
@@ -32,7 +32,7 @@
 }
 
 #footer {
-    background-image: url(/images/ribbontran1.png);
+    background-image: url(/old/images/ribbontran1.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width:101.75%;

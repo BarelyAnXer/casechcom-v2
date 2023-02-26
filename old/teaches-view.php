@@ -40,7 +40,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td>
 
 
-                        <a href="./teaches-delete.php?id=<?php echo $row['teaches_id']; ?>" class="btn btn-danger btn-flat">
+                        <a href="teaches-delete.phpd=<?php echo $row['teaches_id']; ?>" class="btn btn-danger btn-flat">
                             <i class="material-icons">delete</i>
                         </a>
 

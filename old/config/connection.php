@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "db-mysql-nyc1-87489-do-user-11001674-0.b.db.ondigitalocean.com";
+$username = "doadmin";
+$password = "AVNS_huhBVbCSNYmR1L";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, "casechcom");

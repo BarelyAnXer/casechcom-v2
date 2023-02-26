@@ -208,7 +208,7 @@
 				<div class="col-12 col-md-6 col-lg-3">
 					<div class="card text-center">
 						<div class="card-body">
-							<img alt="" class="img-fluid rounded-circle" src="images/Vission.png>
+							<img alt="" class="img-fluid rounded-circle" src="old/images/Vission.png>
 							<h3 class="card-title py-2">Jack Wilson</h3>
 							<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ipsam nostrum illo tempora esse quibusdam.</p>
 							<p class="socials"><i class="bi bi-twitter text-dark mx-1"></i> <i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
@@ -256,6 +256,6 @@
 	<!-- footer ends -->
 	
 	<!-- All Js -->
-	<script src="js/bootstrap.bundle.min.js"></script> 
+	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

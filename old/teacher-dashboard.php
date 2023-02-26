@@ -10,9 +10,9 @@
     <title>Casechcom School
     </title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="old/css/bootstrap.min.css">
     <!----css3---->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="old/css/custom.css">
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
