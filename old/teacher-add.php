@@ -38,7 +38,7 @@ if (isset($_POST['register'])) {
 
 ?>
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <html>
 <head>

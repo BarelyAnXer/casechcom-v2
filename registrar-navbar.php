@@ -8,9 +8,9 @@
     <title>Casechcom School
     </title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="old/css/bootstrap.min.css">
     <!----css3---->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="old/css/custom.css">
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,11 +30,11 @@
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><img src="images/logonew.png" class="images-fluid"/><span>Casechcom</span></h3>
+            <h3><img src="old/images/logonew.png" class="images-fluid"/><span>Casechcom</span></h3>
         </div>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="admin-dashboard.php" class="dashboard"><i
+                <a href="old/admin-dashboard.php" class="dashboard"><i
                             class="material-icons">dashboard</i><span>Dashboard</span></a>
             </li>
 
@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="logout.php"><i class="material-icons">logout</i><span>logout</span></a>
+                    <a href="old/logout.php"><i class="material-icons">logout</i><span>logout</span></a>
                 </li>
             </div>
 
@@ -61,83 +61,29 @@
 
                 <ul class="collapse list-unstyled menu" id="pageSubmenu2">
                     <li>
-                        <a href="student-add.php">Add Student</a>
+                        <a href="">Add Student</a>
                     </li>
                     <li>
-                        <a href="student-view.php">View Students</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">group_add</i>
-
-
-                    <span>Teacher</span></a>
-                <ul class="collapse list-unstyled menu" id="pageSubmenu3">
-                    <li>
-                        <a href="teacher-add.php">Add Teacher</a>
-                    </li>
-                    <li>
-                        <a href="teacher-view.php">View Teachers</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">psychology</i><span>Behavior</span></a>
-                <ul class="collapse list-unstyled menu" id="pageSubmenu4">
-                    <li>
-                        <a href="behavior-add.php">Manage Behavior</a>
-                    </li>
-                    <li>
-                        <a href="behaviour-view.php">View Behavior Records</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">star</i><span>Grades</span></a>
-                <ul class="collapse list-unstyled menu" id="pageSubmenu5">
-                    <li>
-                        <a href="admin-input-grades.php">Manage Grades</a>
-                    </li>
-                    <li>
-                        <a href="admin-view-grades.php">View Grades Records</a>
-                    </li>
-                    <li>
-                        <a href="admin-restore-grade.php">Restore Grades Reports</a>
+                        <a href="">View Students</a>
                     </li>
                 </ul>
             </li>
 
 
             <li class="">
-                <a href="finance-crd.php"><i class="material-icons">payments</i><span>Finance</span></a>
+                <a href="old/teaches-add.php"><i
+                            class="material-icons">Y</i><span>School Year</span></a>
             </li>
 
             <li class="">
-                <a href="digital-libraries.php"><i class="material-icons">app_shortcut</i><span>Libraries</span></a>
+                <a href="old/teaches-add.php"><i
+                            class="material-icons">M</i><span>School Month</span></a>
             </li>
 
-            <li class="">
-                <a href="attendance-crd.php"><i class="material-icons">insert_chart</i><span>Attendance</span></a>
-            </li>
-
-
-            <li class="">
-                <a href="classes-crd.php"><i class="material-icons">groups</i><span>Classes</span></a>
-            </li>
-            <li class="">
-                <a href="subject-crd.php"><i class="material-icons">badge</i><span>Subjects</span></a>
-            </li>
-
-            <li class="">
-                <a href="teaches-add.php"><i
-                            class="material-icons">cast_for_education</i><span>Teaches</span></a>
-            </li>
+<!--            <li class="">-->
+<!--                <a href="old/teaches-add.php"><i-->
+<!--                            class="material-icons">cast_for_education</i><span></span></a>-->
+<!--            </li>-->
 
 
         </ul>
@@ -179,7 +125,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout.php">
+                                <a class="nav-link" href="old/logout.php">
                                     <span class="material-icons">logout</span>
                                 </a>
                             </li>
@@ -190,10 +136,10 @@
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.3.1.slim.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="old/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="old/js/popper.min.js"></script>
+        <script src="old/js/bootstrap.min.js"></script>
+        <script src="old/js/jquery-3.3.1.min.js"></script>
 
 
         <script type="text/javascript">

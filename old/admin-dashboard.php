@@ -36,7 +36,7 @@ if (isset($_SESSION['user'])) {
 </head>
 <body>
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 <?php include "config/connection.php" ?>
 
 <div class="main-content">

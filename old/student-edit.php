@@ -30,7 +30,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $teacher = $rows[0];
 ?>
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <html>
 <head>

@@ -1,4 +1,4 @@
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <!--Fields for restoring the information of the grades in the database-->
     <!--This is intended for the PHP flow-->

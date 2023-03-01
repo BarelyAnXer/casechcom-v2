@@ -32,7 +32,7 @@ if (isset($_POST['SAVE'])) {
 ?>
 
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <div class="content">
     <div class="card card-outline card-primary">

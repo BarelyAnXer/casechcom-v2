@@ -29,7 +29,7 @@ if (isset($_POST['UPDATE'])) {
 ?>
 
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 
 <div class="content">

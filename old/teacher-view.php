@@ -1,4 +1,4 @@
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 
 <?php

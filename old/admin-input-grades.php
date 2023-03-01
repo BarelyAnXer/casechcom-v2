@@ -1,4 +1,4 @@
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <!-- Fields for The PHP layout of the inputing the grades-->
 <?php

@@ -38,7 +38,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $attendance = $rows[0];
 ?>
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <div class="content">
     <div class="card card-outline card-primary">

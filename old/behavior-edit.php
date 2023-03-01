@@ -41,7 +41,7 @@ if (isset($_POST['Update'])) {
 <!-- Area for The HTML layout of the inputing the grades-->
 
 
-<?php include "admin-navbar.php" ?>
+<?php include "registrar-navbar.php" ?>
 
 <html>
 
