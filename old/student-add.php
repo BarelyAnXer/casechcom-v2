@@ -149,8 +149,8 @@ if (isset($_POST['register'])) {
                                         ?>
                                     </select>
                                 </div>
-
                             </div>
+
                         </div>
 
                     </div>

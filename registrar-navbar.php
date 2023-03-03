@@ -69,6 +69,20 @@
                 </ul>
             </li>
 
+            <li class="dropdown">
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="material-icons">group_add</i><span>Student</span></a>
+
+                <ul class="collapse list-unstyled menu" id="pageSubmenu3">
+                    <li>
+                        <a href="registrar-student-add.php">Add Teacher</a>
+                    </li>
+                    <li>
+                        <a href="registrar-student-view.php">View Students</a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="">
                 <a href="old/teaches-add.php"><i
