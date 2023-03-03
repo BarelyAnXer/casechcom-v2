@@ -57,14 +57,17 @@
 
             <li class="dropdown">
                 <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">group_add</i><span>Students</span></a>
+                    <i class="material-icons">group_add</i><span>Teachers</span></a>
 
                 <ul class="collapse list-unstyled menu" id="pageSubmenu2">
                     <li>
-                        <a href="">Add Student</a>
+                        <a href="registrar-teacher-add.php">Add Teacher</a>
                     </li>
                     <li>
-                        <a href="">View Students</a>
+                        <a href="registrar-teacher-update.php">View Teachers</a>
+                    </li>
+                    <li>
+                        <a href="registrar-teacher-view.php">View Teachers</a>
                     </li>
                 </ul>
             </li>
@@ -80,10 +83,10 @@
                             class="material-icons">M</i><span>School Month</span></a>
             </li>
 
-<!--            <li class="">-->
-<!--                <a href="old/teaches-add.php"><i-->
-<!--                            class="material-icons">cast_for_education</i><span></span></a>-->
-<!--            </li>-->
+            <!--            <li class="">-->
+            <!--                <a href="old/teaches-add.php"><i-->
+            <!--                            class="material-icons">cast_for_education</i><span></span></a>-->
+            <!--            </li>-->
 
 
         </ul>
