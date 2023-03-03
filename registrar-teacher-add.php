@@ -26,9 +26,9 @@ if (isset($_POST['register'])) {
     $user_sql = "insert into user (user_email, user_firstname, user_lastname, user_middlename, user_password,
                             user_level, user_gender, user_province, user_city, user_barangay,
                             user_street, user_zip_code, user_phone_number, user_date_admitted, user_school_id,
-                            user_suffix, user_birth_date, user_house_number)
+                            user_suffix, user_birth_date, user_house_number, user_religion)
 values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teacher', '$gender', '$province', '$city',
-        '$barangay', '$street', '$zip', '$phonenumber', '$dateadmitted', '$schoolid', '$suffix', '$birthdate', '$house_number');";
+        '$barangay', '$street', '$zip', '$phonenumber', '$dateadmitted', '$schoolid', '$suffix', '$birthdate', '$house_number', '$religion');";
 
     if (mysqli_query($conn, $user_sql)) {
 //        $teacher_id = $conn->insert_id;

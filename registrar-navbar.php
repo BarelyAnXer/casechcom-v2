@@ -64,9 +64,6 @@
                         <a href="registrar-teacher-add.php">Add Teacher</a>
                     </li>
                     <li>
-                        <a href="registrar-teacher-update.php">View Teachers</a>
-                    </li>
-                    <li>
                         <a href="registrar-teacher-view.php">View Teachers</a>
                     </li>
                 </ul>
