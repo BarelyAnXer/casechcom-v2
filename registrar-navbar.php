@@ -75,7 +75,7 @@
 
                 <ul class="collapse list-unstyled menu" id="pageSubmenu3">
                     <li>
-                        <a href="registrar-student-add.php">Add Teacher</a>
+                        <a href="registrar-student-add.php">Add Student</a>
                     </li>
                     <li>
                         <a href="registrar-student-view.php">View Students</a>
@@ -85,13 +85,41 @@
 
 
             <li class="">
-                <a href="old/teaches-add.php"><i
-                            class="material-icons">Y</i><span>School Year</span></a>
+                <a href="registrar-classes-crd.php"><i
+                            class="material-icons">C</i><span>Classes</span></a>
             </li>
 
             <li class="">
-                <a href="old/teaches-add.php"><i
-                            class="material-icons">M</i><span>School Month</span></a>
+                <a href="registrar-schoolyear-crd.php"><i
+                            class="material-icons">Y</i><span>School Year</span></a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="material-icons">M</i><span>School Month</span></a>
+
+                <ul class="collapse list-unstyled menu" id="pageSubmenu4">
+                    <li>
+                        <a href="registrar-schoolmonth-create.php">Add Month</a>
+                    </li>
+                    <li>
+                        <a href="registrar-schoolmonth-view.php">View Month</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="material-icons">A</i><span>Attendance</span></a>
+
+                <ul class="collapse list-unstyled menu" id="pageSubmenu5">
+                    <li>
+                        <a href="registrar-attendance-create.php">Add Attendance</a>
+                    </li>
+                    <li>
+                        <a href="registrar-schoolmonth-view.php">View Attendance</a>
+                    </li>
+                </ul>
             </li>
 
             <!--            <li class="">-->

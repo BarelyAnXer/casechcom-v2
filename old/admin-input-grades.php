@@ -59,7 +59,8 @@ values ('$student_id', '$subject_id', '$classes_id', '$teacher_id', '$grade1', '
 
             $.ajax({
                 type: "POST",
-                url: "getStudents.php",
+                url: "" +
+                    "getStudents.php",
                 data: {
                     classes_id: classes_id,
                 },
