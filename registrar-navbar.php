@@ -117,7 +117,7 @@
                         <a href="registrar-attendance-create.php">Add Attendance</a>
                     </li>
                     <li>
-                        <a href="registrar-schoolmonth-view.php">View Attendance</a>
+                        <a href="registrar-attendance-view.php">View Attendance</a>
                     </li>
                 </ul>
             </li>

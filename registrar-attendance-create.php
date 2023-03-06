@@ -45,21 +45,11 @@ if (isset($_POST['register'])) {
         ?>
     </select>
     <br>
-    <label for="">date</label>
-    <input type="date"><br>
-    <br>
-    <br>
-    <br>
     <label for="date">Select a date:</label>
     <input type="date" name="date" id="date" min="2022-01-01" max="2023-12-31">
 
     <?php
-    $sql = "select *
-from user
-         join student s on user.user_id = s.student_user_id
-         join classes c on c.classes_id = s.student_classes_id
-where user_level = 'student'
-  and classes_id = '3';";
+    $sql = "select * from user join student s on user.user_id = s.student_user_id join classes c on c.classes_id = s.student_classes_id where user_level = 'student' and classes_id = '3';";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         echo "<form method='post'>";

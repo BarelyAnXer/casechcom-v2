@@ -31,12 +31,12 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             });
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Set the initial date picker value
             $('#datepicker').datepicker();
 
             // Limit the date picker by the year and month selected in the drop-downs
-            $('#year, #month').change(function() {
+            $('#year, #month').change(function () {
                 var year = $('#year').val();
                 var month = $('#month').val();
                 var startDate = new Date(year, month - 1, 1);
@@ -50,34 +50,12 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         });
 
     </script>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
     <body>
     <div class="col-lg-12">
         <div class="card card-outline card-primary">
             <div class="card-body">
-
-                <select id="year">
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select>
-                <select id="month">
-                    <option value="01">January</option>
-                    <option value="02">February</option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <input type="text" id="datepicker">
-
                 <select name="classes_id" id="classes" onchange="getMonths(this.value)">
                     <option value="item0">--Select an Item--</option>
                     <?php
