@@ -13,6 +13,7 @@ $conn = mysqli_connect("localhost", "root", "", "database");
 // Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Loop through each student and update the attendance record
+    var_dump($_POST["attendance"]);
     foreach ($_POST["attendance"] as $id => $attendance) {
         $status = $attendance["status"];
         $remarks = mysqli_real_escape_string($conn, $attendance["remarks"]);

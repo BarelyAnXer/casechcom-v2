@@ -1,22 +1,21 @@
 <?php
 include("./config/connection.php");
 
-if (isset($_POST['register'])) {
-    $schoolyearid = $_POST['schoolyearid'];
-    $totaldays = $_POST['totaldays'];
-    $monthname = $_POST['monthname'];
-
-    $user_sql = "";
-
-    if (mysqli_query($conn, $user_sql)) {
-        header("Location: registrar-schoolmonth-create.php");
-    } else {
-        echo "Error: " . $person_sql . "<br>" . $conn->error;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $attendance_date = $_POST['attendance_date'];
+    foreach ($_POST["attendance"] as $id => $attendance) {
+        if (!empty($attendance["status"])) {
+            $status = $attendance["status"];
+            $remarks = mysqli_real_escape_string($conn, $attendance["remarks"]);
+            $sql = "INSERT INTO attendance (attendance_student_id, attendance_school_year_id, attendance_date, attendance_remarks, attendance_status) VALUES ('$id', '1', '$attendance_date', '$remarks', '$status');";
+            mysqli_query($conn, $sql);
+        }
     }
-
+    echo "<p>Attendance records saved successfully!</p>";
 }
-
 ?>
+
+
 
 <?php include "registrar-navbar.php" ?>
 
@@ -29,30 +28,18 @@ if (isset($_POST['register'])) {
 <body>
 
 <div class="col-lg-12">
-    <label for="">school year</label>
-    <select name="teacher_id">
-        <?php
-        $teaches_sql = "select * from school_year";
-        $res = mysqli_query($conn, $teaches_sql);
-        $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
-        if ($rows > 0) {
-            foreach ($rows as $row) {
-                ?>
-                <option value="<?php echo $row['school_year_id'] ?>"><?php echo $row['school_year_session'] ?></option>
-                <?php
-            }
-        }
-        ?>
-    </select>
-    <br>
-    <label for="date">Select a date:</label>
-    <input type="date" name="date" id="date" min="2022-01-01" max="2023-12-31">
+
 
     <?php
     $sql = "select * from user join student s on user.user_id = s.student_user_id join classes c on c.classes_id = s.student_classes_id where user_level = 'student' and classes_id = '3';";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         echo "<form method='post'>";
+
+        echo '<label for="date">Select a date:</label>';
+        echo '<input type="date" name="attendance_date" id="date" min="2022-01-01" max="2023-12-31">';
+
+
         echo "<table>";
         echo "<tr><th>Student Name</th><th>Attendance</th><th>Remarks</th></tr>";
 
@@ -60,10 +47,10 @@ if (isset($_POST['register'])) {
             echo "<tr>";
             echo "<td>" . $row["user_firstname"] . " " . $row["user_lastname"] . "</td>";
             echo "<td>";
-            echo "<input type='radio' name='attendance[" . $row["user_id"] . "][status]' value='late'> Late";
-            echo "<input type='radio' name='attendance[" . $row["user_id"] . "][status]' value='absent'> Absent";
+            echo "<input type='radio' name='attendance[" . $row["student_id"] . "][status]' value='late'> Late";
+            echo "<input type='radio' name='attendance[" . $row["student_id"] . "][status]' value='absent'> Absent";
             echo "</td>";
-            echo "<td><input type='text' name='attendance[" . $row["user_id"] . "][remarks]' placeholder='Remarks'></td>";
+            echo "<td><input type='text' name='attendance[" . $row["student_id"] . "][remarks]' placeholder='Remarks'></td>";
             echo "</tr>";
         }
 

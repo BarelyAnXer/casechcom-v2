@@ -1,24 +1,24 @@
 <?php
 include "./config/connection.php";
 
-$result = mysqli_query($conn, "select * from school_year");
+$result = mysqli_query($conn, "select * from subject");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $schoolyear_sql = "select * from school_year where school_year_id = '$id'";
+    $schoolyear_sql = "select * from subject where subject_id = '$id'";
     $result = mysqli_query($conn, $schoolyear_sql);
     $rows2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $schoolyear = $rows2[0];
+    $subject = $rows2[0];
 }
 
 if (isset($_POST['UPDATE'])) {
-    $schoolyearsession = $_POST['schoolyearsession'];
-    $classes_sql = "update school_year
-set school_year_session = '$schoolyearsession'
-where school_year_id = '$id';";
+    $name = $_POST['name'];
+    $classes_sql = "update subject
+set subject_name = '$name'
+where subject_id = '$id';";
     if (mysqli_query($conn, $classes_sql)) {
-        header("Location: registrar-schoolyear-crd.php");
+        header("Location: registrar-subject-crd.php");
     } else {
         echo "Error: " . $classes_sql . "<br>" . $conn->error;
     }
@@ -35,10 +35,8 @@ where school_year_id = '$id';";
             <form align="center" action="" method="POST" novalidate>
                 <br>
                 <label for="">School Year</label>
-                <input type="text" name="schoolyearsession" value="<?php echo $schoolyear['school_year_session'] ?>"/>
+                <input type="text" name="name" value="<?php echo $subject['subject_name'] ?>"/>
 
-                <br>
-                <label for="">Is Active</label>
 
 
                 <br>
@@ -65,14 +63,14 @@ where school_year_id = '$id';";
                 foreach ($rows as $row) {
                     ?>
                     <tr align="center">
-                        <td><?php echo $row['school_year_id']; ?></td>
-                        <td><?php echo $row['school_year_session']; ?></td>
+                        <td><?php echo $row['subject_id']; ?></td>
+                        <td><?php echo $row['subject_name']; ?></td>
                         <td>
-                            <a href="registrar-schoolyear-update.php?id=<?php echo $row['school_year_id']; ?>"
+                            <a href="registrar-subject-update.php?id=<?php echo $row['subject_id']; ?>"
                                class="btn btn-primary btn-flat ">
                                 <i class="material-icons">edit_note</i>
                             </a>
-                            <a href="registrar-schoolyear-crd.php?id=<?php echo $row['school_year_id']; ?>"
+                            <a href="registrar-subject-crd.php?id=<?php echo $row['subject_id']; ?>"
                                class="btn btn-danger btn-flat">
                                 <i class="material-icons">delete</i>
                             </a>

@@ -122,11 +122,24 @@
                 </ul>
             </li>
 
-            <!--            <li class="">-->
-            <!--                <a href="old/teaches-add.php"><i-->
-            <!--                            class="material-icons">cast_for_education</i><span></span></a>-->
-            <!--            </li>-->
+            <li class="">
+                <a href="registrar-subject-crd.php"><i
+                            class="material-icons">L</i><span>Learning Area</span></a>
+            </li>
 
+            <li class="dropdown">
+                <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="material-icons">G</i><span>Grading</span></a>
+
+                <ul class="collapse list-unstyled menu" id="pageSubmenu6">
+                    <li>
+                        <a href="registrar-grading-create.php">Create Grade</a>
+                    </li>
+                    <li>
+                        <a href="registrar-grading-view.php">View Grades</a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
 

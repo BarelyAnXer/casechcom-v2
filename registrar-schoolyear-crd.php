@@ -51,6 +51,7 @@ if (isset($_POST['SAVE'])) {
             <tr align="center">
                 <th width="100">ID</th>
                 <th width="100">Classes Name</th>
+                <th width="100">IS Active</th>
                 <th width="100">Actions</th>
             </tr>
             </thead>
@@ -62,6 +63,7 @@ if (isset($_POST['SAVE'])) {
                     <tr align="center">
                         <td><?php echo $row['school_year_id']; ?></td>
                         <td><?php echo $row['school_year_session']; ?></td>
+                        <td><?php echo $row['school_year_is_active'] ? 'yes' : 'no'; ?></td>
                         <td>
                             <a href="registrar-schoolyear-update.php?id=<?php echo $row['school_year_id']; ?>"
                                class="btn btn-primary btn-flat ">
