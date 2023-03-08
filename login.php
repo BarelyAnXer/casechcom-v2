@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($emailError) && empty($passwordError)) {
             $result = mysqli_query($conn, "select * from user where user_email='$email'");
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            echo '<pre>' . var_export($rows, true) . '</pre>';
+//            echo '<pre>' . var_export($rows, true) . '</pre>';
             if (count($rows)) {
                 $user = $rows[0];
                 if (password_verify($password, $user['user_password'])) {

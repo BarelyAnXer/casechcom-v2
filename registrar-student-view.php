@@ -56,6 +56,10 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <td><?php echo $row['user_gender']; ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">
+                                        <a href="registrar-student-view-grades.php?id=<?php echo $row['student_id']; ?>"
+                                           class="btn btn-success btn-flat ">
+                                            <i class="material-icons">grade</i>
+                                        </a>
                                         <a href="registrar-student-update.php?id=<?php echo $row['user_id']; ?>"
                                            class="btn btn-primary btn-flat ">
                                             <i class="material-icons">edit_note</i>
@@ -91,6 +95,24 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $('#datatableid').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Your Data",
+                }
+
+
+            });
+        });
+    </script>
     </body>
     </html>
 

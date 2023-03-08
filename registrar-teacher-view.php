@@ -91,6 +91,24 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $('#datatableid').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Your Data",
+                }
+
+            });
+        });
+    </script>
+
     </body>
     </html>
 
