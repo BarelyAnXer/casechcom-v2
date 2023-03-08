@@ -53,91 +53,107 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
     <body>
-    <div class="col-lg-12">
-        <div class="card card-outline card-primary">
-            <div class="card-body">
-                <select name="classes_id" id="classes" onchange="getMonths(this.value)">
-                    <option value="item0">--Select an Item--</option>
-                    <?php
-                    $grade_sql = "select * from school_year";
-                    $res = mysqli_query($conn, $grade_sql);
-                    $school_years = mysqli_fetch_all($res, MYSQLI_ASSOC);
-                    if ($school_years > 0) {
-                        foreach ($school_years as $row) {
-                            ?>
-                            <option value="<?php echo $row['school_year_id'] ?>">
-                                <?php echo $row['school_year_session'] ?></option>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card card-outline card-primary">
+                    <div class="card-body">
+
+                        <select name="classes_id" id="classes" onchange="getMonths(this.value)" class="form-control mb-3">
+                            <option value="item0">--Select an Item--</option>
                             <?php
-                        }
-                    }
-                    ?>
-                </select>
+                            $grade_sql = "select * from school_year";
+                            $res = mysqli_query($conn, $grade_sql);
+                            $school_years = mysqli_fetch_all($res, MYSQLI_ASSOC);
+                            if ($school_years > 0) {
+                                foreach ($school_years as $row) {
+                                    ?>
+                                    <option value="<?php echo $row['school_year_id'] ?>">
+                                        <?php echo $row['school_year_session'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </select>
 
-                <table id="datatableid" class="table table-hover table-bordered" id="list">
-                    <colgroup>
-                        <col width="5%">
-                        <col width="15%">
-                        <col width="25%">
-                        <col width="25%">
-                        <col width="15%">
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Total Days</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody id="data">
-                    <!----><?php
-                    //if ($rows > 0) {
-                    //    foreach ($rows as $row) {
-                    //        ?>
-                    <!--        <tr>-->
-                    <!--            <td class="text-center"> -->
-                                    <?php //echo $row['school_month_name']; ?><!--</td>-->
-                    <!--            <td class="text-center"> -->
-                                    <?php //echo $row['school_month_school_days']; ?><!--</td>-->
+                        <div class="table-responsive">
+                            <table id="datatableid" class="table table-hover table-bordered" id="list">
+                                <colgroup>
+                                    <col width="5%">
+                                    <col width="15%">
+                                    <col width="25%">
+                                    <col width="25%">
+                                    <col width="15%">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Total Days</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Add your dynamic content here -->
 
-                    <!--            <td class="text-center">-->
-                    <!--                <div class="btn-group">-->
-                    <!--                    <a href="registrar-teacher-update.php?id=-->
-                    <!--                                --><?php //echo $row['user_id']; ?><!--"-->
-                    <!--                       class="btn btn-primary btn-flat ">-->
-                    <!--                        <i class="material-icons">edit_note</i>-->
-                    <!--                    </a>-->
-                    <!--                    <a href="registrar-teacher-delete.php?id=-->
-                    <!--                                --><?php //echo $row['user_id']; ?><!--"-->
-                    <!--                       class="btn btn-danger btn-flat delete_student">-->
-                    <!--                        <i class="material-icons">delete</i>-->
-                    <!--                    </a>-->
-                    <!--                </div>-->
-                    <!--            </td>-->
+                                <tbody id="data">
+                                <!----><?php
+                                //if ($rows > 0) {
+                                //    foreach ($rows as $row) {
+                                //        ?>
+                                <!--        <tr>-->
+                                <!--            <td class="text-center"> -->
+                                <?php //echo $row['school_month_name']; ?><!--</td>-->
+                                <!--            <td class="text-center"> -->
+                                <?php //echo $row['school_month_school_days']; ?><!--</td>-->
 
-                    <!--        </tr>-->
-                    <!--        --><?php
-                    //    }
-                    //}
-                    //?>
-                    </tbody>
-                </table>
+                                <!--            <td class="text-center">-->
+                                <!--                <div class="btn-group">-->
+                                <!--                    <a href="registrar-teacher-update.php?id=-->
+                                <!--                                --><?php //echo $row['user_id']; ?><!--"-->
+                                <!--                       class="btn btn-primary btn-flat ">-->
+                                <!--                        <i class="material-icons">edit_note</i>-->
+                                <!--                    </a>-->
+                                <!--                    <a href="registrar-teacher-delete.php?id=-->
+                                <!--                                --><?php //echo $row['user_id']; ?><!--"-->
+                                <!--                       class="btn btn-danger btn-flat delete_student">-->
+                                <!--                        <i class="material-icons">delete</i>-->
+                                <!--                    </a>-->
+                                <!--                </div>-->
+                                <!--            </td>-->
+
+                                <!--        </tr>-->
+                                <!--        --><?php
+                                //    }
+                                //}
+                                //?>
+                                </tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
-
-    <style>
-        table td {
-            vertical-align: middle !important;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> -->
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+
+
+
+
+
+
+
+
+
+
 
     </body>
     </html>

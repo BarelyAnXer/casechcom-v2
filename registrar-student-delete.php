@@ -8,3 +8,5 @@ if ($result) {
     $parent = dirname($_SERVER['REQUEST_URI']);
     header("Location: registrar-student-view.php");
 }
+
+

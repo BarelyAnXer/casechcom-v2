@@ -1,3 +1,15 @@
+<?php
+include "config/connection.php";
+session_start();
+
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+} else {
+    header('Location: login.php');
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,97 +46,20 @@
         </div>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="registrar-dashboard.php" class="dashboard"><i
+                <a href="student-dashboard.php" class="dashboard"><i
                             class="material-icons">dashboard</i><span>Dashboard</span></a>
             </li>
 
-            <div class="small-screen navbar-display">
-
-
-                <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="#"><i class="material-icons">apps</i><span>apps</span></a>
-                </li>
-
-                <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="#"><i class="material-icons">persons</i><span>profile</span></a>
-                </li>
-
-                <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="logout.php"><i class="material-icons">logout</i><span>logout</span></a>
-                </li>
-            </div>
-
-            <li class="dropdown">
-                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">group_add</i><span>Teachers</span></a>
-
-                <ul class="collapse list-unstyled menu" id="pageSubmenu2">
-                    <li>
-                        <a href="registrar-teacher-add.php">Add Teacher</a>
-                    </li>
-                    <li>
-                        <a href="registrar-teacher-view.php">View Teachers</a>
-                    </li>
-                </ul>
+            <li class="active">
+                <a href="student-grades-view.php" class="dashboard"><i
+                            class="material-icons">dashboard</i><span>View Grades</span></a>
             </li>
 
-            <li class="dropdown">
-                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">group_add</i><span>Student</span></a>
-
-                <ul class="collapse list-unstyled menu" id="pageSubmenu3">
-                    <li>
-                        <a href="registrar-student-add.php">Add Student</a>
-                    </li>
-                    <li>
-                        <a href="registrar-student-view.php">View Students</a>
-                    </li>
-                </ul>
+            <li class="active">
+                <a href="student-attendance-view.php" class="dashboard"><i
+                            class="material-icons">dashboard</i><span>View Attendance</span></a>
             </li>
 
-
-            <li class="">
-                <a href="registrar-classes-crd.php"><i
-                            class="material-icons">co_present</i><span>Classes</span></a>
-            </li>
-
-            <li class="">
-                <a href="registrar-schoolyear-crd.php">
-                    <i class="material-icons">event_available</i><span>School Year</span></a>
-            </li>
-
-            <li class="dropdown">
-                <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">calendar_month</i><span>School Month</span></a>
-
-                <ul class="collapse list-unstyled menu" id="pageSubmenu4">
-                    <li>
-                        <a href="registrar-schoolmonth-create.php">Add Month</a>
-                    </li>
-                    <li>
-                        <a href="registrar-schoolmonth-view.php">View Month</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="">
-                <a href="registrar-subject-crd.php"><i
-                            class="material-icons">auto_stories</i><span>Learning Area</span></a>
-            </li>
-
-            <li class="dropdown">
-                <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="material-icons">G</i><span>Grading</span></a>
-
-                <ul class="collapse list-unstyled menu" id="pageSubmenu6">
-                    <li>
-                        <a href="registrar-grading-create.php">Create Grade</a>
-                    </li>
-                    <li>
-                        <a href="registrar-grading-view.php">View Grades</a>
-                    </li>
-                </ul>
-            </li>
 
         </ul>
 
@@ -142,7 +77,7 @@
                         <span class="material-icons">arrow_back_ios</span>
                     </button>
 
-                    <a class="navbar-brand" href="#"> Admin Dashboard </a>
+                    <a class="navbar-brand" href="#"> Student Dashboard </a>
 
                     <button class="d-inline-block d-lg-none ml-auto more-button" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -197,6 +132,7 @@
 
 
         </script>
+
 
 </body>
 

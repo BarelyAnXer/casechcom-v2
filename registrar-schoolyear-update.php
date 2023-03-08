@@ -14,9 +14,14 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['UPDATE'])) {
     $schoolyearsession = $_POST['schoolyearsession'];
+    $isactive = $_POST['isactive'];
     $classes_sql = "update school_year
-set school_year_session = '$schoolyearsession'
-where school_year_id = '$id';";
+    set school_year_session = '$schoolyearsession',
+    school_year_is_active = '$isactive'
+    where school_year_id = '$id';";
+
+    mysqli_query($conn, "update school_year set school_year_is_active = '0' where school_year_is_active = '1';");
+
     if (mysqli_query($conn, $classes_sql)) {
         header("Location: registrar-schoolyear-crd.php");
     } else {
@@ -39,6 +44,14 @@ where school_year_id = '$id';";
 
                 <br>
                 <label for="">Is Active</label>
+                <select name="isactive" id="" class="custom-select custom-select-sm" required>
+                    <option value="0" <?php echo $schoolyear['school_year_is_active'] ? 'selected="selected"' : '' ?>>
+                        No
+                    </option>
+                    <option value="1" <?php echo $schoolyear['school_year_is_active'] ? 'selected="selected"' : '' ?>>
+                        Yes
+                    </option>
+                </select>
 
 
                 <br>
@@ -56,6 +69,7 @@ where school_year_id = '$id';";
             <tr align="center">
                 <th width="100">ID</th>
                 <th width="100">Classes Name</th>
+                <th width="100">Is Active</th>
                 <th width="100">Actions</th>
             </tr>
             </thead>
@@ -67,6 +81,7 @@ where school_year_id = '$id';";
                     <tr align="center">
                         <td><?php echo $row['school_year_id']; ?></td>
                         <td><?php echo $row['school_year_session']; ?></td>
+                        <td><?php echo $row['school_year_is_active'] ? 'yes' : 'no'; ?></td>
                         <td>
                             <a href="registrar-schoolyear-update.php?id=<?php echo $row['school_year_id']; ?>"
                                class="btn btn-primary btn-flat ">

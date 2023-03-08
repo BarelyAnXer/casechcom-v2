@@ -63,7 +63,7 @@ if (isset($_SESSION['user'])) {
                 </li>
 
                 <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="logout.php"><i class="material-icons">logout</i><span>logout</span></a>
+                    <a href="../logout.php"><i class="material-icons">logout</i><span>logout</span></a>
                 </li>
             </div>
 
@@ -139,7 +139,7 @@ if (isset($_SESSION['user'])) {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout.php">
+                                <a class="nav-link" href="../logout.php">
                                     <span class="material-icons">logout</span>
                                 </a>
                             </li>

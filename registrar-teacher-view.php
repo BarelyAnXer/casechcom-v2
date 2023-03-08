@@ -6,10 +6,7 @@ include "./config/connection.php";
 $result = mysqli_query($conn, "select *from user where user_level = 'teacher';");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
 ?>
-
-
     <html>
 
     <head>

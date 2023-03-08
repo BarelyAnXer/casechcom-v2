@@ -1,7 +1,8 @@
 <?php
-include("./config/connection.php");
+include "config/connection.php";
 
-if (isset($_POST['register'])) {
+if (isset($_POST['update'])) {
+    $student_id = $_POST['id'];
     $schoolid = $_POST['schoolid'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -20,9 +21,7 @@ if (isset($_POST['register'])) {
     $street = $_POST['street'];
     $zip = $_POST['zip'];
     $dateadmitted = $_POST['dateadmitted'];
-
     $classes_id = $_POST['classes_id'];
-
     $student_guardian_firstname = $_POST['studentguardianfirstname'];
     $student_guardian_middlename = $_POST['studentguardianmiddlename'];
     $student_guardian_lastname = $_POST['studentguardianlastname'];
@@ -31,44 +30,27 @@ if (isset($_POST['register'])) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user_sql = "insert into user (user_email, user_firstname, user_lastname, user_middlename, user_password,
-                            user_level, user_gender, user_province, user_city, user_barangay,
-                            user_street, user_zip_code, user_phone_number, user_date_admitted, user_school_id,
-                            user_suffix, user_birth_date, user_house_number, user_religion)
-values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teacher', '$gender', '$province', '$city',
-        '$barangay', '$street', '$zip', '$phonenumber', '$dateadmitted', '$schoolid', '$suffix', '$birthdate', '$house_number', '$religion');";
+    $update_user_sql = "UPDATE casechcom.user SET user_email='$email', user_firstname='$firstname', user_lastname='$lastname', user_middlename='$middlename', user_password='$password', user_gender='$gender', user_province='$province', user_city='$city', user_barangay='$barangay', user_street='$street', user_zip_code='$zip', user_phone_number='$phonenumber', user_date_admitted='$dateadmitted', user_school_id='$schoolid', user_suffix='$suffix', user_birth_date='$birthdate', user_house_number='$house_number', user_religion='$religion' WHERE user_id='$student_id'";
 
-    if (mysqli_query($conn, $user_sql)) {
-        $student_id = $conn->insert_id;
-        $student_sql = "insert into student (student_user_id, student_classes_id, student_guardian_firstname,
-                     student_guardian_middlename, student_guardian_lastname, student_guardian_relation,
-                     student_guardian_email)
-values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_guardian_middlename',
-        '$student_guardian_lastname',
-        '$student_guardian_relation', '$student_guardian_email');";
-        if ($conn->query($student_sql) === TRUE) {
-            header("Location: registrar-student-add.php");
+    if (mysqli_query($conn, $update_user_sql)) {
+        $update_student_sql = "UPDATE student SET student_classes_id='$classes_id', student_guardian_firstname='$student_guardian_firstname', student_guardian_middlename='$student_guardian_middlename', student_guardian_lastname='$student_guardian_lastname', student_guardian_relation='$student_guardian_relation', student_guardian_email='$student_guardian_email' WHERE student_user_id='$student_id'";
+        if ($conn->query($update_student_sql) === TRUE) {
+            header("Location: registrar-student-view.php?id=".$student_id."&msg=update-success");
         } else {
-            echo "Error: " . $student_sql . "<br>" . $conn->error;
+            echo "Error: " . $update_student_sql . "<br>" . $conn->error;
         }
-
     } else {
-        echo "Error: " . $person_sql . "<br>" . $conn->error;
+        echo "Error: " . $update_user_sql . "<br>" . $conn->error;
     }
-
-
 }
 
-?>
-
-<?php
-include "./config/connection.php";
 $id = $_GET['id'];
-$sql = "select * from student join user u on u.user_id = student.student_user_id where user_id = '$id'";
+$sql = "SELECT * FROM casechcom.user WHERE user_id='$id';";
 $result = mysqli_query($conn, $sql);
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$teacher = $rows[0];
+$student = $rows[0];
 ?>
+
 
 <?php include "registrar-navbar.php" ?>
 
@@ -94,7 +76,7 @@ $teacher = $rows[0];
                                 <div class="form-group">
                                     <label for="" class="control-label">School ID</label>
                                     <input type="text" class="form-control form-control-sm" name="schoolid"
-                                           pattern="[0-9]{12}" value="<?php echo $teacher['user_school_id'] ?>"
+                                           pattern="[0-9]{12}" value="<?php echo $student['user_school_id'] ?>"
                                            required>
                                 </div>
                             </div>
@@ -102,72 +84,59 @@ $teacher = $rows[0];
                                 <div class="form-group">
                                     <label for="" class="control-label">Email </label>
                                     <input type="email" class="form-control form-control-sm" name="email"
-                                           value="<?php echo $teacher['user_email'] ?>" required>
+                                           value="<?php echo $student['user_email'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Password</label>
                                     <input type="password" class="form-control form-control-sm" name="password"
-                                           value="<?php echo $teacher['user_password'] ?>" required>
+                                           value="<?php echo $student['user_password'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">First Name</label>
                                     <input type="text" class="form-control form-control-sm" name="firstname"
-                                           value="<?php echo $teacher['user_firstname'] ?>" required>
+                                           value="<?php echo $student['user_firstname'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Middle Name</label>
                                     <input type="text" class="form-control form-control-sm" name="middlename"
-                                           value="<?php echo $teacher['user_middlename'] ?>" required>
+                                           value="<?php echo $student['user_middlename'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Last Name</label>
                                     <input type="text" class="form-control form-control-sm" name="lastname"
-                                           value="<?php echo $teacher['user_lastname'] ?>" required>
+                                           value="<?php echo $student['user_lastname'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Suffix</label>
                                     <input type="text" class="form-control form-control-sm" name="suffix"
-                                           value="<?php echo $teacher['user_suffix'] ?>">
+                                           value="<?php echo $student['user_suffix'] ?>">
                                 </div>
                             </div>
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Phone Number</label>
-                                    <input type="text" class="form-control form-control-sm" pattern="\d{11}"
-                                           name="phonenumber" value="<?php echo $teacher['user_phone_number'] ?>">
-                                </div>
-                            </div>
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Birth Date</label>
                                     <input type="date" class="form-control form-control-sm" name="birthdate"
-                                           value="<?php echo $teacher['user_birth_date'] ?>">
+                                           value="<?php echo $student['user_birth_date'] ?>">
                                 </div>
                             </div>
-
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
                             <div class="form-group">
                                 <label for="" class="control-label">Gender</label>
                                 <select name="gender" id="" class="custom-select custom-select-sm" required>
-                                    <option value="Male" <?php echo $teacher['user_gender'] == "Male" ? 'selected="selected"' : '' ?>>
+                                    <option value="Male" <?php echo $student['user_gender'] == "Male" ? 'selected="selected"' : '' ?>>
                                         Male
                                     </option>
-                                    <option value="Female" <?php echo $teacher['user_gender'] == "Female" ? 'selected="selected"' : '' ?>>
+                                    <option value="Female" <?php echo $student['user_gender'] == "Female" ? 'selected="selected"' : '' ?>>
                                         Female
                                     </option>
                                 </select>
@@ -176,23 +145,45 @@ $teacher = $rows[0];
                                 <div class="form-group">
                                     <label for="" class="control-label">Religion</label>
                                     <input type="text" class="form-control form-control-sm" name="religion"
-                                           value="<?php echo $teacher['user_religion'] ?>" required>
+                                           value="<?php echo $student['user_religion'] ?>" required>
                                 </div>
                             </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">House Number</label>
                                     <input type="text" class="form-control form-control-sm" name="housenumber"
-                                           value="<?php echo $teacher['user_house_number'] ?>" required>
+                                           value="<?php echo $student['user_house_number'] ?>" required>
                                 </div>
                             </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Street</label>
+                                    <input type="text" class="form-control form-control-sm" name="street"
+                                           value="<?php echo $student['user_street'] ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Barangay</label>
+                                    <input type="text" class="form-control form-control-sm" name="barangay"
+                                           value="<?php echo $student['user_barangay'] ?>" required>
+                                </div>
+                            </div>
+
+
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Province</label>
                                     <input type="text" class="form-control form-control-sm" name="province"
-                                           value="<?php echo $teacher['user_province'] ?>" required>
+                                           value="<?php echo $student['user_province'] ?>" required>
                                 </div>
                             </div>
 
@@ -200,25 +191,11 @@ $teacher = $rows[0];
                                 <div class="form-group">
                                     <label for="" class="control-label">City</label>
                                     <input type="text" class="form-control form-control-sm" name="city"
-                                           value="<?php echo $teacher['user_city'] ?>" required>
+                                           value="<?php echo $student['user_city'] ?>" required>
                                 </div>
                             </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Barangay</label>
-                                    <input type="text" class="form-control form-control-sm" name="barangay"
-                                           value="<?php echo $teacher['user_barangay'] ?>" required>
-                                </div>
-                            </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Street</label>
-                                    <input type="text" class="form-control form-control-sm" name="street"
-                                           value="<?php echo $teacher['user_street'] ?>" required>
-                                </div>
-                            </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
@@ -229,18 +206,72 @@ $teacher = $rows[0];
                                 </div>
                             </div>
 
+
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Guardian Firstname</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                           name="studentguardianfirstname"
+                                           value="<?php echo $student['student_guardian_firstname'] ?>"required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Guardian Middlename</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                           value="<?php echo $student['student_guardian_middlename'] ?>" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Guardian Lastname</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                           name="studentguardianlastname"
+                                           value="<?php echo $student['student_guardian_lastname'] ?>"required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Guardian Relation</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                           name="studentguardianrelation"
+                                           value="<?php echo $student['student_guardian_relation'] ?>"required>
+                                </div>
+                            </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Phone Number</label>
+                                    <input type="text" class="form-control form-control-sm" pattern="\d{11}"
+                                           name="phonenumber" value="<?php echo $student['user_phone_number'] ?>">
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Guardian Email</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                           name="studentguardianemail" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+                                           value="<?php echo $student['student_guardian_email'] ?>"required>
+                                </div>
+                            </div>
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Date Admitted</label>
                                     <input type="date" class="form-control form-control-sm" name="dateadmitted"
-                                           value="<?php echo $teacher['user_date_admitted'] ?>" required>
+                                           value="<?php echo $student['user_date_admitted'] ?>" required>
                                 </div>
                             </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Classes</label>
-                                    <select name="classes_id" class="custom-select custom-select-sm" required>
+                                    <select name="classes_id" class="custom-select custom-select-sm"
+                                            value="<?php echo $student['student_classes_id'] ?>"required>
 
                                         <?php
                                         $user_sql = "SELECT * FROM classes";
@@ -258,47 +289,11 @@ $teacher = $rows[0];
                                 </div>
                             </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Guardian Firstname</label>
-                                    <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianfirstname" required>
-                                </div>
-                            </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Guardian Middlename</label>
-                                    <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianmiddlename" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Guardian Lastname</label>
-                                    <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianlastname" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Guardian Relation</label>
-                                    <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianrelation" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Guardian Email</label>
-                                    <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianemail" required>
-                                </div>
-                            </div>
                         </div>
+
                     </div>
+
                 </form>
 
             </div>

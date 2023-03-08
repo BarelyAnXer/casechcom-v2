@@ -18,7 +18,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <?php
 
-$student_id = 2; // Replace with actual student ID
+$student_id = 11; // Replace with actual student ID
 $student_query = "select *
 from student
          join user u on u.user_id = student.student_user_id
@@ -112,5 +112,6 @@ echo "<div class='card'>";
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+
 
 

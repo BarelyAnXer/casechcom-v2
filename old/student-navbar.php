@@ -34,7 +34,7 @@
                 <div class="nav navbar-nav1">
                 <a href="student-dashboard.php" class="btn">Home</a>
                 <a href="#" class="btn">Instruction</a>
-                    <a href="logout.php" class="btn">Log Out</a>
+                    <a href="../logout.php" class="btn">Log Out</a>
                    
                 </div>
             </div>

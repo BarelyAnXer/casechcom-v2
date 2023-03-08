@@ -1,7 +1,7 @@
 <?php include "./config/connection.php"; ?>
 
 
-<?php include "registrar-navbar.php" ?>
+<?php include "teacher-navbar.php" ?>
 
 <html>
 

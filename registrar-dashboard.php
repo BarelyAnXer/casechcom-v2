@@ -1,14 +1,14 @@
 <?php
-include "config/connection.php";
-session_start();
-
-if (isset($_SESSION['user'])) {
-    $user = unserialize($_SESSION['user']);
-} else {
-    header('Location: login.php');
-}
-
-?>
+//include "config/connection.php";
+//session_start();
+//
+//if (isset($_SESSION['user'])) {
+//    $user = unserialize($_SESSION['user']);
+//} else {
+//    header('Location: login.php');
+//}
+//
+//?>
 
 <!doctype html>
 <html lang="en">
@@ -20,9 +20,9 @@ if (isset($_SESSION['user'])) {
     <title>Casechcom School
     </title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="old/css/bootstrap.min.css">
     <!----css3---->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="old/css/custom.css">
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +80,7 @@ if (isset($_SESSION['user'])) {
                     <p class="category"><strong>Students</strong></p>
                     <h3 class="card-title">
                         <?php
-                        $sql = "select COUNT(student_id) as count from user join student s on user.user_id = s.user_id";
+                        $sql = "select COUNT(student_id) as count from user join student s on user.user_id = s.student_user_id";
                         $result = mysqli_query($conn, $sql);
                         $row = mysqli_fetch_assoc($result);
                         echo $row['count'];
@@ -121,7 +121,7 @@ if (isset($_SESSION['user'])) {
                     <p class="category"><strong>Teachers</strong></p>
                     <h3 class="card-title">
                         <?php
-                        $sql = "select COUNT(user.user_id) as count from user join teacher t on user.user_id = t.user_id";
+                        $sql = "select COUNT(user.user_id) as count from user where user_level = 'teacher'";
                         $result = mysqli_query($conn, $sql);
                         $row = mysqli_fetch_assoc($result);
                         echo $row['count'];
