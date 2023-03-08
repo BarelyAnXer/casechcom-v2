@@ -45,9 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $user = unserialize($_SESSION['user']);
 
                     $user_id = $user['user_id'];
+                    //                    var_dump($user_id);
                     $res = mysqli_query($conn, "SELECT classes_id FROM casechcom.classes WHERE classes_teacher_id = '$user_id';");
                     $teacher_classes_id = mysqli_fetch_all($res, MYSQLI_ASSOC);
-                    $classes_id = $teacher_classes_id[0]['classes_id'];
+                    $classes_id = null;
+                    if (count($teacher_classes_id) > 0) {
+                        $classes_id = $teacher_classes_id[0]['classes_id'];
+                    }
 
                     $sql = "select * from user join student s on user.user_id = s.student_user_id join classes c on c.classes_id = s.student_classes_id where user_level = 'student' and classes_id = '$classes_id';";
                     $result = mysqli_query($conn, $sql);
@@ -55,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "<form method='post'>";
                         echo '<div class="form-group">';
                         echo '<label for="date">Select a date:</label>';
-                        echo '<input type="date" name="attendance_date" id="date" min="2022-01-01" max="2023-12-31" class="form-control">';
+                        echo '<input type="date" name="attendance_date" id="date" min="2022-01-01" max="2023-12-31" class="form-control" required>';
                         echo '</div>';
                         echo "<div class='table-responsive'>";
                         echo "<table class='table'>";

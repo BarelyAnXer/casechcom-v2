@@ -7,24 +7,17 @@ if (isset($_POST['register'])) {
     $quarter = $_POST['quarter'];
     $grade = $_POST['grade'];
 
+    $schoolyear_sql = "select * from school_year where school_year_is_active = '1'";
+    $result = mysqli_query($conn, $schoolyear_sql);
+    $rows2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $schoolyear = $rows2[0]['school_year_id'];
 
     $user_sql = "insert into grade (grade_student_id, grade_school_year_id, grade_subject_id, grade_quarter, grade)
-values ('$student_id', 1, '$subject_id', '$quarter', '$grade');";
+values ('$student_id', '$schoolyear', '$subject_id', '$quarter', '$grade');";
 
     if (mysqli_query($conn, $user_sql)) {
-//        $teacher_id = $conn->insert_id;
-//        if ($conn->query($teacher_sql) === TRUE) {
-        echo "New teacher record created successfully";
-        header("Location: registrar-teacher-add.php");
-//        } else {
-////            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
-//        }
-
-    } else {
-//        echo "Error: " . $person_sql . "<br>" . $conn->error;
+        header("Location: registrar-grading-create.php");
     }
-
-
 }
 
 ?>
@@ -104,7 +97,8 @@ values ('$student_id', 1, '$subject_id', '$quarter', '$grade');";
                                 <div class="form-group text-dark">
                                     <div class="form-group">
                                         <label for="" class="control-label">Grade</label>
-                                        <input type="number" class="form-control form-control-sm" name="grade" required>
+                                        <input type="number" class="form-control form-control-sm" name="grade" min="0"
+                                               max="100" required>
                                     </div>
                                 </div>
                             </div>

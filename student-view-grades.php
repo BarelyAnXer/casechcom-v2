@@ -1,6 +1,6 @@
-<?php include "registrar-navbar.php" ?>
+<?php include "student-navbar.php" ?>
+<?php include "config/connection.php" ?>
 <?php
-include "./config/connection.php";
 $result = mysqli_query($conn, "select * from student join user u on u.user_id = student.student_user_id;");
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -25,7 +25,14 @@ $result = mysqli_query($conn, $schoolyear_sql);
 $rows2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $schoolyear = $rows2[0]['school_year_id'];
 
-$student_id = 11; // Replace with actual student ID
+$user = unserialize($_SESSION['user']);
+$user_id = $user['user_id'];
+$schoolyear_sql = "select * from student where student_user_id = '$user_id';";
+$result2 = mysqli_query($conn, $schoolyear_sql);
+$rows3 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+$new_student_id = $rows3[0]['student_id'];
+
+$student_id = $new_student_id;
 $student_query = "select *
 from student
          join user u on u.user_id = student.student_user_id
@@ -118,6 +125,16 @@ echo "</div>";
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+
+
+<?php include "footer.php" ?>
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,25 @@ if (isset($_SESSION['user'])) {
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Casechcom School
+    </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="old/css/bootstrap.min.css">
+    <!----css3---->
+    <link rel="stylesheet" href="old/css/custom.css">
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--google material icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -28,18 +46,15 @@ if (isset($_SESSION['user'])) {
         </div>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="student-dashboard.php" class="dashboard"><i
-                            class="material-icons">dashboard</i><span>Dashboard</span></a>
+                <a href="student-view-grades.php" class="dashboard">
+                    <i class="material-icons">star</i><span>View Grades</span></a>
             </li>
 
-            <li class="active">
-                <a href="student-grades-view.php" class="dashboard"><i
-                            class="material-icons">dashboard</i><span>View Grades</span></a>
-            </li>
 
             <li class="active">
-                <a href="student-attendance-view.php" class="dashboard"><i
-                            class="material-icons">dashboard</i><span>View Attendance</span></a>
+                <a href="student-attendance-view.php" class="dashboard">
+                    <i class="material-icons">any</i><span>View Attedance</span></a>
+
             </li>
 
 

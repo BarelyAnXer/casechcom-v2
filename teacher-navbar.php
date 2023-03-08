@@ -46,19 +46,19 @@ if (isset($_SESSION['user'])) {
         </div>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="student-dashboard.php" class="dashboard"><i
+                <a href="teacher-dashboard.php" class="dashboard"><i
                             class="material-icons">dashboard</i><span>Dashboard</span></a>
             </li>
 
             <li class="active">
-                <a href="registrar-attendance-create.php" class="dashboard"><i
-                            class="material-icons">dashboard</i><span>Add Attendance</span></a>
+                <a href="teacher-attendance-create.php" class="dashboard"><i
+                            class="material-icons">add_task</i><span>Add Attendance</span></a>
             </li>
 
 
             <li class="active">
-                <a href="registrar-attendance-view.php" class="dashboard"><i
-                            class="material-icons">dashboard</i><span>View Attendance</span></a>
+                <a href="teacher-attendance-view.php" class="dashboard"><i
+                            class="material-icons">fact_check</i><span>View Attendance</span></a>
             </li>
 
 
