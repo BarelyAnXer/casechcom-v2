@@ -68,24 +68,18 @@ if (isset($_POST['register'])) {
                                 <div class="form-group">
                                     <label for="" class="control-label">Month</label>
                                     <select name="monthname" class="custom-select custom-select-sm" required>
-                                        <!--                                        --><?php
-                                        //                                        $user_sql = "SELECT * FROM classes";
-                                        //                                        $res = mysqli_query($conn, $user_sql);
-                                        //                                        $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
-                                        //                                        if ($rows > 0) {
-                                        //                                            foreach ($rows as $row) {
-                                        //                                                ?>
-                                        <!--                                                <option value="-->
-                                        <?php //echo $row['classes_id'] ?><!--">-->
-                                        <?php //echo $row['classes_name'] ?><!--</option>-->
-                                        <!--                                                --><?php
-                                        //                                            }
-                                        //                                        }
-                                        //                                        ?>
-                                        <option value="jan">jan</option>
-                                        <option value="feb">feb</option>
-                                        <option value="march">march</option>
-
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
                                     </select>
                                 </div>
                             </div>

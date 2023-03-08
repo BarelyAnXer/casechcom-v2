@@ -70,10 +70,10 @@ values ('$student_id', 1, '$subject_id', '$quarter', '$grade');";
                                 <div class="form-group">
                                     <label for="" class="control-label">Quarter</label>
                                     <select name="quarter" id="" class="custom-select custom-select-sm" required>
-                                        <option value="Male">1st Quarter</option>
-                                        <option value="Female">2nd Quarter</option>
-                                        <option value="Female">3rd Quarter</option>
-                                        <option value="Female">4th Quarter</option>
+                                        <option value="Q1">1st Quarter</option>
+                                        <option value="Q2">2nd Quarter</option>
+                                        <option value="Q3">3rd Quarter</option>
+                                        <option value="Q4">4th Quarter</option>
                                     </select>
                                 </div>
                             </div>

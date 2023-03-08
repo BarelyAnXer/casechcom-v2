@@ -89,36 +89,36 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </tr>
                     </thead>
                     <tbody id="data">
-                    <!--                                        --><?php
-                    //                                        if ($rows > 0) {
-                    //                                            foreach ($rows as $row) {
-                    //                                                ?>
-                    <!--                                                <tr>-->
-                    <!--                                                    <td class="text-center"> -->
-                    <?php //echo $row['school_month_name']; ?><!--</td>-->
-                    <!--                                                    <td class="text-center"> -->
-                    <?php //echo $row['school_month_school_days']; ?><!--</td>-->
+                    <!----><?php
+                    //if ($rows > 0) {
+                    //    foreach ($rows as $row) {
+                    //        ?>
+                    <!--        <tr>-->
+                    <!--            <td class="text-center"> -->
+                                    <?php //echo $row['school_month_name']; ?><!--</td>-->
+                    <!--            <td class="text-center"> -->
+                                    <?php //echo $row['school_month_school_days']; ?><!--</td>-->
 
-                    <!--                                <td class="text-center">-->
-                    <!--                                    <div class="btn-group">-->
-                    <!--                                        <a href="registrar-teacher-update.php?id=-->
-                    <!--                                --><?php //echo $row['s']; ?><!--"-->
-                    <!--                                           class="btn btn-primary btn-flat ">-->
-                    <!--                                            <i class="material-icons">edit_note</i>-->
-                    <!--                                        </a>-->
-                    <!--                                        <a href="registrar-teacher-delete.php?id=-->
+                    <!--            <td class="text-center">-->
+                    <!--                <div class="btn-group">-->
+                    <!--                    <a href="registrar-teacher-update.php?id=-->
                     <!--                                --><?php //echo $row['user_id']; ?><!--"-->
-                    <!--                                           class="btn btn-danger btn-flat delete_student">-->
-                    <!--                                            <i class="material-icons">delete</i>-->
-                    <!--                                        </a>-->
-                    <!--                                    </div>-->
-                    <!--                                </td>-->
+                    <!--                       class="btn btn-primary btn-flat ">-->
+                    <!--                        <i class="material-icons">edit_note</i>-->
+                    <!--                    </a>-->
+                    <!--                    <a href="registrar-teacher-delete.php?id=-->
+                    <!--                                --><?php //echo $row['user_id']; ?><!--"-->
+                    <!--                       class="btn btn-danger btn-flat delete_student">-->
+                    <!--                        <i class="material-icons">delete</i>-->
+                    <!--                    </a>-->
+                    <!--                </div>-->
+                    <!--            </td>-->
 
-                    <!--                            </tr>-->
-                    <!--                            --><?php
-                    //                        }
-                    //                    }
-                    //                    ?>
+                    <!--        </tr>-->
+                    <!--        --><?php
+                    //    }
+                    //}
+                    //?>
                     </tbody>
                 </table>
             </div>

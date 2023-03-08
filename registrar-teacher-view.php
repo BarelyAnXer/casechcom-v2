@@ -20,7 +20,14 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <div class="col-lg-12">
         <div class="card card-outline card-primary">
+
             <div class="card-body">
+                <?php if (isset($error_msg)) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $error_msg; ?>
+                    </div>
+                <?php endif; ?>
+
                 <table id="datatableid" class="table table-hover table-bordered" id="list">
                     <colgroup>
                         <col width="5%">

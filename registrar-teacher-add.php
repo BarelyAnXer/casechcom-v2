@@ -21,40 +21,36 @@ if (isset($_POST['register'])) {
     $zip = $_POST['zip'];
     $dateadmitted = $_POST['dateadmitted'];
 
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    if (strlen($password) < 9) {
+        $error_msg = "Password too short must be at least 8 characters";
+    } else {
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $user_sql = "insert into user (user_email, user_firstname, user_lastname, user_middlename, user_password,
+        $user_sql = "INSERT INTO user (user_email, user_firstname, user_lastname, user_middlename, user_password,
                             user_level, user_gender, user_province, user_city, user_barangay,
                             user_street, user_zip_code, user_phone_number, user_date_admitted, user_school_id,
                             user_suffix, user_birth_date, user_house_number, user_religion)
-values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teacher', '$gender', '$province', '$city',
-        '$barangay', '$street', '$zip', '$phonenumber', '$dateadmitted', '$schoolid', '$suffix', '$birthdate', '$house_number', '$religion');";
+                 VALUES ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teacher', '$gender', '$province', '$city',
+                         '$barangay', '$street', '$zip', '$phonenumber', '$dateadmitted', '$schoolid', '$suffix', '$birthdate', '$house_number', '$religion');";
 
-    if (mysqli_query($conn, $user_sql)) {
-//        $teacher_id = $conn->insert_id;
-//        if ($conn->query($teacher_sql) === TRUE) {
-        echo "New teacher record created successfully";
-        header("Location: registrar-teacher-add.php");
-//        } else {
-////            echo "Error: " . $teacher_sql . "<br>" . $conn->error;
-//        }
-
-    } else {
-//        echo "Error: " . $person_sql . "<br>" . $conn->error;
+        if (mysqli_query($conn, $user_sql)) {
+            echo "New teacher record created successfully";
+            header("Location: registrar-teacher-add.php");
+        } elseif (mysqli_errno($conn) == 1062) {
+            $error_msg = "Duplicate Entry";
+        } else {
+            $error_msg = "Something Bad Happened";
+        }
     }
 
-
 }
-
 ?>
 
 <?php include "registrar-navbar.php" ?>
 
 <html>
 <head>
-
     <link rel="stylesheet" href="css/Styletwo.css">
-
 </head>
 <body>
 
@@ -65,6 +61,13 @@ values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teache
             <div class="card-body">
                 <form action="" id="manage-student">
                     <input type="hidden" name="id">
+
+                    <?php if (isset($error_msg)) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $error_msg; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div id="msg" class=""></div>
@@ -72,6 +75,7 @@ values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teache
                                 <div class="form-group">
                                     <label for="" class="control-label">School ID</label>
                                     <input type="text" class="form-control form-control-sm" name="schoolid"
+                                           placeholder="99999999999"
                                            pattern="[0-9]{12}" required>
                                 </div>
                             </div>
@@ -116,6 +120,7 @@ values ('$email', '$firstname', '$lastname', '$middlename', '$password', 'teache
                                 <div class="form-group">
                                     <label for="" class="control-label">Phone Number</label>
                                     <input type="text" class="form-control form-control-sm" pattern="\d{11}"
+                                           placeholder="99999999999"
                                            name="phonenumber">
                                 </div>
                             </div>

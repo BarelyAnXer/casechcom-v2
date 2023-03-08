@@ -91,7 +91,8 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Email </label>
-                                    <input type="email" class="form-control form-control-sm" name="email" required>
+                                    <input type="email" class="form-control form-control-sm" name="email"
+                                           pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
@@ -125,24 +126,13 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                                     <input type="text" class="form-control form-control-sm" name="suffix">
                                 </div>
                             </div>
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Phone Number</label>
-                                    <input type="text" class="form-control form-control-sm" pattern="\d{11}"
-                                           name="phonenumber">
-                                </div>
-                            </div>
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Birth Date</label>
                                     <input type="date" class="form-control form-control-sm" name="birthdate">
                                 </div>
                             </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="" class="control-label">Gender</label>
                                 <select name="gender" id="" class="custom-select custom-select-sm" required>
@@ -157,12 +147,32 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                                 </div>
                             </div>
 
+                        </div>
+
+
+                        <div class="col-md-6">
+
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">House Number</label>
                                     <input type="text" class="form-control form-control-sm" name="housenumber" required>
                                 </div>
                             </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Street</label>
+                                    <input type="text" class="form-control form-control-sm" name="street" required>
+                                </div>
+                            </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Barangay</label>
+                                    <input type="text" class="form-control form-control-sm" name="barangay" required>
+                                </div>
+                            </div>
+
+
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
@@ -178,19 +188,7 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                                 </div>
                             </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Barangay</label>
-                                    <input type="text" class="form-control form-control-sm" name="barangay" required>
-                                </div>
-                            </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Street</label>
-                                    <input type="text" class="form-control form-control-sm" name="street" required>
-                                </div>
-                            </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
@@ -200,34 +198,7 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                                 </div>
                             </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Date Admitted</label>
-                                    <input type="date" class="form-control form-control-sm" name="dateadmitted"
-                                           required>
-                                </div>
-                            </div>
 
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Classes</label>
-                                    <select name="classes_id" class="custom-select custom-select-sm" required>
-
-                                        <?php
-                                        $user_sql = "SELECT * FROM classes";
-                                        $res = mysqli_query($conn, $user_sql);
-                                        $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
-                                        if ($rows > 0) {
-                                            foreach ($rows as $row) {
-                                                ?>
-                                                <option value="<?php echo $row['classes_id'] ?>"><?php echo $row['classes_name'] ?></option>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
@@ -260,12 +231,48 @@ values ('$student_id', '$classes_id', '$student_guardian_firstname', '$student_g
                                            name="studentguardianrelation" required>
                                 </div>
                             </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Phone Number</label>
+                                    <input type="text" class="form-control form-control-sm" pattern="\d{11}"
+                                           name="phonenumber">
+                                </div>
+                            </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label">Guardian Email</label>
                                     <input type="text" class="form-control form-control-sm"
-                                           name="studentguardianemail" required>
+                                           name="studentguardianemail" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Date Admitted</label>
+                                    <input type="date" class="form-control form-control-sm" name="dateadmitted"
+                                           required>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Classes</label>
+                                    <select name="classes_id" class="custom-select custom-select-sm" required>
+
+                                        <?php
+                                        $user_sql = "SELECT * FROM classes";
+                                        $res = mysqli_query($conn, $user_sql);
+                                        $rows = mysqli_fetch_all($res, MYSQLI_ASSOC);
+                                        if ($rows > 0) {
+                                            foreach ($rows as $row) {
+                                                ?>
+                                                <option value="<?php echo $row['classes_id'] ?>"><?php echo $row['classes_name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
 

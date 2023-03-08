@@ -22,8 +22,6 @@ FROM casechcom.grade
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
-
-
     <html>
 
     <head>
