@@ -120,9 +120,9 @@
                     <li>
                         <a href="registrar-grading-create.php">Create Grade</a>
                     </li>
-                    <li>
-                        <a href="registrar-grading-view.php">View Grades</a>
-                    </li>
+<!--                    <li>-->
+                    <!--                        <a href="registrar-grading-view.php">View Grades</a>-->
+                    <!--                    </li>-->
                 </ul>
             </li>
 

@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="form-outline mb-4">
                                         <input type="password" name="password" value="" id="form2Example22"
                                                class="form-control"
-                                               placeholder="Email address"/>
+                                               placeholder="Password"/>
 
                                     </div>
                                     <?php echo $passwordError ?>
