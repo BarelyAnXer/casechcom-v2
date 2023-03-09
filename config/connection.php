@@ -11,5 +11,5 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 //echo "Connected successfully";
-//mysqli_report(MYSQLI_REPORT_STRICT);
+mysqli_report(MYSQLI_REPORT_STRICT);
 ?>
