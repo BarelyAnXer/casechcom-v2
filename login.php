@@ -119,12 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <h4 class="mb-4">We are more than just a company</h4>
-                                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <h4 class="mb-4" >We are educating <br> the mind and the heart</h4>
+                                <p class="small mb-0"style="text-align: justify;">a piece of software called the Student Monitoring System (SMS) which is utilized to organize and run educational institutions more effectively. It offers a consolidated platform for the storage and access of information about students, professors, staff, and other stakeholders. The Student Monitoring System (SMS), which can be accessed by authorized individuals from any place with an internet connection, is intended to increase efficiency, communication, and data accuracy inside the institution. In that case, the developers initiated a casual interview with school administrators to gather data in improving their educational institution. </p>
                             </div>
                         </div>
                     </div>
